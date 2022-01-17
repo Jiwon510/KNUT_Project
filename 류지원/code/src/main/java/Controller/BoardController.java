@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import entity.Board;
 
-@WebServlet("/view/main/board")
+@WebServlet("/board/board")
 public class BoardController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 

@@ -19,7 +19,7 @@ import entity.User;
 
 
 
-@WebServlet("/view/sign/join")
+@WebServlet("/join/join")
 public class JoinController extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

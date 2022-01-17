@@ -10,7 +10,7 @@
 </head>
 <body>
 	<!-- ---------------------------------main------------------------------------------ -->
-	<form action="/view/sign/login" method="post" class="loginForm">
+	<form action="/login/login" method="post" class="loginForm">
       <div class="wrap">
         <div class="login">
             <h2>로그인</h2>
@@ -30,7 +30,7 @@
             </div>
             <div class="login_etc">
                 <div class="join">
-                <a href="/view/sign/join.jsp">회원가입</a>
+                <a href="/join/join.jsp">회원가입</a>
             </div>
             </div>
             <div class="submit">

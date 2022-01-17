@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/view/sign/login")
+@WebServlet("/login/login")
 public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,12 +46,12 @@ public class LoginController extends HttpServlet {
 			
 			if(rs.next()) {
 				if("2".equals(authority))
-					response.sendRedirect("/view/main/admin/adminIndex.jsp");
+					response.sendRedirect("/index/index.jsp");
 				else if("1".equals(authority))
-					response.sendRedirect("/view/main/user/userIndex.jsp");
+					response.sendRedirect("/index/index.jsp");
 			} 
 			else {
-				response.sendRedirect("/view/sign/login.jsp");
+				response.sendRedirect("/login/login.jsp");
 			}
 			
 		} catch (Exception e) {

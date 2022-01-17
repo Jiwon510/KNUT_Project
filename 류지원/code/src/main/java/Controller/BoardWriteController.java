@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import Service.WriteService;
 import entity.Write;
 
-@WebServlet("/view/main/boardwrite")
+@WebServlet("/boardWrite/boardWrite")
 public class BoardWriteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

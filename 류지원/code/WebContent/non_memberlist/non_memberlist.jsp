@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
@@ -13,10 +13,10 @@
 <body>
 	<!-- ---------------------------------header---------------------------------------- -->
 	<div class="header">
-		<jsp:include page="/view/sub/header/admin/memberListHeader.jsp"></jsp:include>
+		<jsp:include page="/view/sub/header/admin/non_memberListHeader.jsp"></jsp:include>
 	</div>
 	<!-- ---------------------------------main------------------------------------------ -->
-	<form action="/view/main/memberList" method="get">
+<form action="/non_memberlist/non_memberlist" method="get">
 		<div class="row">
 			<div class="col-md-8 mb-3">
 				<select class="custom-select d-block w-100" name="search">
@@ -94,9 +94,6 @@
 		</div>
 
 	</div>
-
-
-
 
 	<div>
 		<button class="btn btn-danger btn-lg btn-block" style="float: right;"
