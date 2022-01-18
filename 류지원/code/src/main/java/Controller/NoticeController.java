@@ -15,7 +15,7 @@ import entity.Notice;
 
 
 
-@WebServlet("/notice/notice")
+@WebServlet("/VIEW/notice/notice")
 public class NoticeController extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -51,6 +51,6 @@ public class NoticeController extends HttpServlet {
       request.setAttribute("list", list);
       request.setAttribute("count", count);
       
-      request.getRequestDispatcher("/notice/notice.jsp").forward(request, response);
+      request.getRequestDispatcher("/VIEW/notice/notice.jsp").forward(request, response);
    }      
 }

@@ -19,7 +19,7 @@ import entity.User;
 
 
 
-@WebServlet("/join/join")
+@WebServlet("/VIEW/join/join")
 public class JoinController extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +37,6 @@ public class JoinController extends HttpServlet {
       JoinService service = new JoinService();
       List<User> list = service.getjoin(name, studentID, password, department, email, address, detailAddress, motive, authority);
           
-      response.sendRedirect("login.jsp");
+      response.sendRedirect("VIEW/login/login.jsp");
    }
 }

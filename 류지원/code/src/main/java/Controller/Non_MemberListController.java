@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import Service.MemberService;
 import entity.User;
 
-@WebServlet("/non_memberlist/non_memberlist")
+@WebServlet("/VIEW/non_memberlist/non_memberlist")
 public class Non_MemberListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -44,6 +44,6 @@ public class Non_MemberListController extends HttpServlet {
 		int count = service.getNonMemberCount(field, query);
 		request.setAttribute("count", count);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/non_memberlist/non_memberlist.jsp").forward(request, response);
+		request.getRequestDispatcher("/VIEW/non_memberlist/non_memberlist.jsp").forward(request, response);
 	}	
 }

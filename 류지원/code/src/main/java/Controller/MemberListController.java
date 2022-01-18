@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import Service.MemberService;
 import entity.User;
 
-@WebServlet("/memberlist/memberlist")
+@WebServlet("/VIEW/memberlist/memberlist")
 public class MemberListController extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -45,6 +45,6 @@ public class MemberListController extends HttpServlet {
 		request.setAttribute("count", count);
 		request.setAttribute("list", list);
       
-      request.getRequestDispatcher("/memberlist/memberlist.jsp").forward(request, response);
+      request.getRequestDispatcher("/VIEW/memberlist/memberlist.jsp").forward(request, response);
    }   
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import Service.NoticeService;
 import entity.Notice;
 
-@WebServlet("/noticedetail/noticedetail")
+@WebServlet("/VIEW/noticeDetail/noticeDetail")
 public class NoticeDetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,6 +24,6 @@ public class NoticeDetailController extends HttpServlet {
 		request.setAttribute("n", notice);
 
 		
-		request.getRequestDispatcher("/noticedetail/noticedetail.jsp").forward(request, response);
+		request.getRequestDispatcher("/VIEW/noticeDetail/noticeDetail.jsp").forward(request, response);
 	}
 }

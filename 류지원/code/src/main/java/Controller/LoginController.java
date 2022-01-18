@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/login/login")
+@WebServlet("/VIEW/login/login")
 public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,16 +44,18 @@ public class LoginController extends HttpServlet {
 			pst.setString(3, authority);
 			rs = pst.executeQuery();
 			
+//			if(rs.next()) {
+//				if("2".equals(authority))
+//					response.sendRedirect("/VIEW/index/index.jsp");
+//				else if("1".equals(authority))
+//					response.sendRedirect("/index/index.jsp");
+//			}
 			if(rs.next()) {
-				if("2".equals(authority))
-					response.sendRedirect("/index/index.jsp");
-				else if("1".equals(authority))
-					response.sendRedirect("/index/index.jsp");
-			} 
-			else {
-				response.sendRedirect("/login/login.jsp");
+				response.sendRedirect("/VIEW/index/index.jsp");
 			}
-			
+			else {
+				response.sendRedirect("/VIEW/login/login.jsp");
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {
