@@ -17,7 +17,7 @@ import Service.WriteService;
 import entity.User;
 import entity.Write;
 
-@WebServlet("/view/main/noticewrite")
+@WebServlet("/VIEW/noticeWrite/noticeWrite")
 public class NoticeWriteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,6 +29,6 @@ public class NoticeWriteController extends HttpServlet{
 		WriteService service = new WriteService();
 	    List<Write> list = service.WriteNotice(title, writer, content);
 		
-		response.sendRedirect("/view/main/notice"	);
+		response.sendRedirect("/VIEW/notice/notice"	);
 	}
 }

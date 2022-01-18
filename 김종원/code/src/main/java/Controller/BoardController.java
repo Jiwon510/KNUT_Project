@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import entity.Board;
 
-@WebServlet("/view/main/board")
+@WebServlet("/VIEW/board/board")
 public class BoardController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -73,6 +73,6 @@ public class BoardController extends HttpServlet{
 		}
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/view/main/user/board.jsp").forward(request, response);
+		request.getRequestDispatcher("/VIEW/board/board.jsp").forward(request, response);
 	}		
 }
