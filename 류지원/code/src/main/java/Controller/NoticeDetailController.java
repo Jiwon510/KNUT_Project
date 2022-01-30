@@ -37,10 +37,8 @@ public class NoticeDetailController extends HttpServlet {
 		
 		NoticeService service = new NoticeService(); 
 		CommentService service2 = new CommentService();
-		List<Comment> list = service2.insertComment(content, writer, num);
-		Notice notice = service.getNotice(num);
+		List<Comment> list = service2.getCommentList(num);
 		
-		request.setAttribute("n", notice);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("/VIEW/noticeDetail/noticeDetail.jsp").forward(request, response);

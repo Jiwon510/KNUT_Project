@@ -97,9 +97,6 @@ public class CommentService {
 						, date
 				);
 				list.add(comment);
-				System.out.println(list);
-				
-				
 			}
 			
 		} catch (Exception e) {
