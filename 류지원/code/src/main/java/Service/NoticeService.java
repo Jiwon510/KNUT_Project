@@ -1,6 +1,5 @@
 package Service;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -27,8 +26,8 @@ public class NoticeService {
 
 		List<Notice> list = new ArrayList<>();
 
-		String sql = "SELECT @ROWNUM := @ROWNUM +1 AS n, num, title, writer, date" 
-		+ " FROM NOTICE, (SELECT @ROWNUM := 0)TMP WHERE " +field+ " LIKE ? ORDER BY date DESC limit ?, 10;";
+		String sql = "SELECT @ROWNUM := @ROWNUM +1 AS n, NOTICE_VIEW.*" 
+		+ " FROM NOTICE_VIEW, (SELECT @ROWNUM := 0)TMP WHERE " +field+ " LIKE ? ORDER BY date DESC limit ?, 10;";
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -53,13 +52,16 @@ public class NoticeService {
 				String title = rs.getString("title");
 				String writer = rs.getString("writer");
 				Date date = rs.getDate("date");
+				int comment_count = rs.getInt("comment_count");
 
 				Notice notice = new Notice(
 						n
 						, num
 						, title
 						, writer
-						, date);
+						, date
+						, comment_count
+				);
 				list.add(notice);
 				
 				
@@ -149,7 +151,7 @@ public class NoticeService {
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, num);
-			System.out.println(pst);
+		
 			
 			rs = pst.executeQuery();
 
@@ -168,7 +170,6 @@ public class NoticeService {
 				
 
 			}
-			System.out.println(notice);
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {

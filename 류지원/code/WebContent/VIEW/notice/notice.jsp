@@ -44,7 +44,7 @@
          <input type="hidden" name="n" value=${n.num } >
          <tr>
             <td>${n.n}</td>
-            <td><a href="/VIEW/noticeDetail/noticeDetail?num=${n.num}">${n.title }</a></td>
+            <td><a href="/VIEW/noticeDetail/noticeDetail?num=${n.num}">${n.title }</a><span>[${n.comment_count }]</span></td>
             <td>${n.writer }</td>
             <td>${n.date }</td>
             <td><input type="checkbox" name= "check"></td>
