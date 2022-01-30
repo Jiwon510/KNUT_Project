@@ -44,21 +44,22 @@
 
 	<table>
 		<thead>
+			<c:forEach var="n" items="${list_2}">
 			<tr>
-				<th scope="cols">No.</th>
-				<th scope="cols">작성자</th>
-				<th scope="cols">내용</th>
-				<th scope="cols">날짜</th>
+				<th scope="cols">${n.writer }</th>
+				<th scope="cols">${n.content }</th>
+				<th scope="cols">${n.date }</th>
 			</tr>
+			</c:forEach>
 		</thead>
-		<tbody>
+		<!-- <tbody>
 				<tr>
 					<td>1</td>
 					<td>류지원</td>
 					<td>좋아요</td>
 					<td>2022-01-12</td>
 				</tr>
-		</tbody>
+		</tbody> -->
 	</table> <br>
 	
 	

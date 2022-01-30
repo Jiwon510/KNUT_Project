@@ -29,18 +29,16 @@ public class NoticeDetailController extends HttpServlet {
 		String writer = (String)session.getAttribute("studentID");
 		String content = request.getParameter("content");
 		
-		System.out.println(num);
-		System.out.println(writer);
-		System.out.println(content);
+//		System.out.println(num);
+//		System.out.println(writer);
+//		System.out.println(content);
 //		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
 		
 		
 		NoticeService service = new NoticeService(); 
 		CommentService service2 = new CommentService();
-		List<Comment> list = service2.insertComment(content, writer, num);
-		Notice notice = service.getNotice(num);
+		List<Comment> list = service2.getCommentList(num);
 		
-		request.setAttribute("n", notice);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("/VIEW/noticeDetail/noticeDetail.jsp").forward(request, response);

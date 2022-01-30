@@ -205,4 +205,47 @@ public class MemberService {
 		}
 		return count;
 	}
+	
+	public String getMemberName(String studentID) {
+		String name = null;
+		
+		String sql = "SELECT name FROM USER where studentID = ?"; 
+
+		Connection conn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		String dbURL = "jdbc:mysql://localhost:4406/test";
+		String dbID = "root";
+		String dbPassword = "root";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, studentID);
+			
+			rs = pst.executeQuery();
+			
+			if(rs.next()) 
+				name = rs.getString("name");
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+
+				if (pst != null)
+					pst.close();
+
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+		return name;
+	}
 }
