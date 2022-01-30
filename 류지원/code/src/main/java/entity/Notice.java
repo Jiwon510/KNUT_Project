@@ -9,6 +9,7 @@ public class Notice {
 	private String writer;
 	private String content;
 	private Date date;
+	private int comment_count;
 	
 	public Notice(String title, String writer, Date date, String content) {
 		this.title = title;
@@ -17,21 +18,23 @@ public class Notice {
 		this.content = content;
 	}
 	
-	public Notice(int n, int num, String title, String writer, Date date) {
+	public Notice(int n, int num, String title, String writer, Date date, int comment_count) {
 		this.n = n;
 		this.num = num;
 		this.title = title;
 		this.writer = writer;
 		this.date = date;
+		this.comment_count = comment_count;
 	}
 	
-	public Notice(int n, int num, String title, String writer, String content, Date date) {
+	public Notice(int n, int num, String title, String writer, String content, Date date, int comment_count) {
 		this.n = n;
 		this.num = num;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
 		this.date = date;
+		this.comment_count = comment_count;
 	}
 
 	public int getN() {
@@ -82,9 +85,17 @@ public class Notice {
 		this.date = date;
 	}
 
+	public int getComment_count() {
+		return comment_count;
+	}
+
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
+	}
+
 	@Override
 	public String toString() {
 		return "Notice [n=" + n + ", num=" + num + ", title=" + title + ", writer=" + writer + ", content=" + content
-				+ ", date=" + date + "]";
+				+ ", date=" + date + ", comment_count=" + comment_count + "]";
 	}
 }

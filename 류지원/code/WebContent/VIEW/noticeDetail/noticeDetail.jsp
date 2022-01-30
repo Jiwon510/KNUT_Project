@@ -32,11 +32,47 @@
 									<th>내용</th>
 									<td>${n.content }</td>
 								</tr>
+								<!-- 수정필요 -->
+								<tr>
+									<th>좋아요</th>
+									<td>3</td>
+								</tr>
 							</tbody>
 						</table>
-					</div>
+					</div> <br>
 					
-					<div class="margin-top text-align-center">
+
+	<table>
+		<thead>
+			<tr>
+				<th scope="cols">No.</th>
+				<th scope="cols">작성자</th>
+				<th scope="cols">내용</th>
+				<th scope="cols">날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+					<td>1</td>
+					<td>류지원</td>
+					<td>좋아요</td>
+					<td>2022-01-12</td>
+				</tr>
+		</tbody>
+	</table> <br>
+	
+	
+	<form action="/VIEW/noticeDetail/noticeDetail">
+		<input type="hidden" name="num" value=${ n.num } >
+		<div class="mb-3">
+			<textarea class="form-control" rows="5" name="content" id="content" placeholder="댓글을 입력해주세요" ></textarea>
+		</div>
+		<button type="submit" id="btnInsert">댓글입력</button>
+	</form>
+	
+
+
+	<div class="margin-top text-align-center">
 						<a class="btn btn-list" href="/VIEW/notice/notice">목록</a>
 					</div>
 					

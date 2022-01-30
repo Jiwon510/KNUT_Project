@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,15 +52,18 @@
                   <div class="invalid-feedback">이메일을 입력해주세요.</div>
                </div>
                <div class="mb-3">
-                  <label for="address">주소</label> <input type="text"
-                     class="form-control" name="address" placeholder="서울특별시 강남구"
-                     required>
+                  <label for="address">주소</label> 
+                  <input id="member_post"  type="button" value='주소찾기' readonly onclick="findAddr()">
+  				  <!-- <input id="member_addr" type="text" placeholder="Address" readonly> <br> -->
+  				  <input type="text" class="form-control" id="address"  name="address" placeholder="서울특별시 강남구">
+                  <!-- <input type="text" class="form-control" name="address" placeholder="서울특별시 강남구" required> -->
                   <div class="invalid-feedback">주소를 입력해주세요.</div>
                </div>
                <div class="mb-3">
                   <label for="detailAddress">상세주소<span class="text-muted">&nbsp;
-                  </span></label> <input type="text" class="form-control" name="detailAddress"
-                     placeholder="상세주소를 입력해주세요.">
+                  </span>
+                  </label> 
+                  <input type="text" class="form-control" name="detailAddress" placeholder="상세주소를 입력해주세요.">
                 <div class="mb-3">
                 <div>
                   <label for="motive">지원동기</label> <input type="text"
@@ -98,3 +103,25 @@
    <script> window.addEventListener('load', () => { const forms = document.getElementsByClassName('validation-form'); Array.prototype.filter.call(forms, (form) => { form.addEventListener('submit', function (event) { if (form.checkValidity() === false) { event.preventDefault(); event.stopPropagation(); } form.classList.add('was-validated'); }, false); }); }, false); </script>
 </body>
 </html>
+
+<script>
+function findAddr(){
+	new daum.Postcode({
+        oncomplete: function(data) {
+        	
+        	console.log(data);
+       
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            var jibunAddr = data.jibunAddress; // 지번 주소 변수
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            if(roadAddr !== ''){
+                document.getElementById("address").value = roadAddr;
+            } 
+            else if(jibunAddr !== ''){
+                document.getElementById("address").value = jibunAddr;
+            }
+        }
+    }).open();
+}
+</script>
+

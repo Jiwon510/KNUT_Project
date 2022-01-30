@@ -12,7 +12,7 @@
 <body>
 	<!-- ---------------------------------header---------------------------------------- -->
 	<div class="header">
-		<jsp:include page="/VIEW/index/indexHeader.jsp"></jsp:include>
+		<jsp:include page="/VIEW/index/indexHeader.jsp"></jsp:include><span>${studentID }</span>
 	</div>
 	<!-- ---------------------------------main------------------------------------------ -->
 	<br >

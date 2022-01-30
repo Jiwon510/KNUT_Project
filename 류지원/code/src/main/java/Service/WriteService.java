@@ -17,7 +17,6 @@ public class WriteService {
 
 		Connection conn = null;
 		PreparedStatement pst = null;
-		int rs;
 
 		String dbURL = "jdbc:mysql://localhost:4406/test";
 		String dbID = "root";
@@ -32,7 +31,7 @@ public class WriteService {
 			pst.setString(3, content);
 			
 			
-			rs = pst.executeUpdate();
+			int rs = pst.executeUpdate();
 
 			Write write = new Write (
 					title

@@ -23,6 +23,7 @@ public class LoginController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("authority", authority);
+		session.setAttribute("studentID", studentID);
 		
 		String query = "SELECT studentID, password from User WHERE studentID = ? AND password = ? AND authority = ?";
 		Connection conn = null;
