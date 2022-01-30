@@ -13,7 +13,7 @@
 	<!-- ---------------------------------header---------------------------------------- -->
 	<div class="header">
 		<jsp:include page="/VIEW/index/indexHeader.jsp"></jsp:include>
-		<span>${name }</span>
+		<span>${studentID }</span>
 		<a href="/VIEW/login/login.jsp">로그아웃</a></li>
 	</div>
 	<!-- ---------------------------------main------------------------------------------ -->

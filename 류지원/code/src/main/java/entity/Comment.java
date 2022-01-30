@@ -10,6 +10,13 @@ public class Comment {
 	private Date date;
 	private int notice_num;
 	
+	public Comment(String writer, String content, Date date) {
+		this.writer = writer;
+		this.content = content;
+		this.date = date;
+	}
+
+	
 	public Comment(String writer, String content, int notice_num) {
 		this.writer = writer;
 		this.content = content;

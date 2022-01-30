@@ -21,6 +21,10 @@ public class LoginController extends HttpServlet {
 		String password = request.getParameter("password");
 		String authority = request.getParameter("authority");
 		
+//		System.out.println(studentID);
+//		System.out.println(password);
+//		System.out.println(authority);
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("authority", authority);
 		session.setAttribute("studentID", studentID);
@@ -45,14 +49,8 @@ public class LoginController extends HttpServlet {
 			pst.setString(3, authority);
 			rs = pst.executeQuery();
 			
-//			if(rs.next()) {
-//				if("2".equals(authority))
-//					response.sendRedirect("/VIEW/index/index.jsp");
-//				else if("1".equals(authority))
-//					response.sendRedirect("/index/index.jsp");
-//			}
 			if(rs.next()) {
-				response.sendRedirect("/VIEW/index/index.jsp");
+				response.sendRedirect("/VIEW/index/index");
 			}
 			else {
 				response.sendRedirect("/VIEW/login/login.jsp");

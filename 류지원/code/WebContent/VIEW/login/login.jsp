@@ -2,48 +2,110 @@
 	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="/VIEW/login/css/login.css">
-	<meta charset="UTF-8">
-<title>로그인페이지</title>
-</head>
-<body>
-	<!-- ---------------------------------main------------------------------------------ -->
-	<form action="/VIEW/login/login" method="post" class="loginForm">
-      <div class="wrap">
-        <div class="login">
-            <h2>로그인</h2>
-            <div class="login_sns">
-            </div>
-            <div class="authority">
-                <input type="radio" name="authority" value="2" checked="checked" /> <span class="up">관리자</span>&nbsp;&nbsp; 
-                <input type="radio" name="authority" value="1"/> <span class="up">사용자</span>
-            </div>
-            <div class="login_id">
-                <h4>학번</h4>
-                <input placeholder="학번" name=studentID>
-            </div>
-            <div class="login_pw">
-                <h4>비밀번호</h4>
-                <input placeholder="비밀번호" type="password" name=password> 
-            </div>
-            <div class="login_etc">
-                <div class="join">
-                <a href="/VIEW/join/join.jsp">회원가입</a>
-            </div>
-            </div>
-            <div class="submit">
-                <input type="submit" value="로그인">
-            </div>
-        </div>
-    </div>
-    </form>
-	
-	<%-- <!-- ---------------------------------footer---------------------------------------- -->
-	<div class="footer">
-		<jsp:include page="footer.jsp"></jsp:include>
-	</div> --%>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>로그인</title>
+        <link rel="stylesheet" href="css/loginstyle.css">
 
-</body>
+
+    </head>
+
+    <body>
+        <header>
+            <a href="/VIEW/index/index.jsp"><img id="logo" src="images/header-logo2.jpg"></a>
+            <h1>KNUT-CLUB</h1>
+        </header>
+        
+
+        <section>
+            <div class="login-form">
+                <div class="tab">
+                    <button class="tablinks active" onclick="openTab(event, 'tab1')">회원</button>
+                    <button class="tablinks" onclick="openTab(event, 'tab2')">관리자</button>
+                </div>
+                <div id="tab1" class="tabcontent" style="display: block;">
+                    <form class="login-Form" action="/VIEW/login/login" method="post">
+                    	<input type="hidden" name="authority" value="1" >
+                        <h2>회원 로그인</h2>
+                          <div class="login-Form-inner">
+                            <div class="idform">
+                              <input type="text" name="studentID" id="id" placeholder="학번"><br>
+                            </div>
+                            <div class="pwform">
+                              <input type="password" name="password" id="pw" placeholder="비밀번호">
+                            </div>
+                            <button id="btn" type="submit"><strong>로그인</strong></button>
+                            <div class="links">
+                              <button class="links-btn" type="button" onclick="location.href='/VIEW/join/join.jsp'"><strong>회원가입</strong></button>
+                              <button class="links-btn" type="button" onclick="location.href='/VIEW/find/find.jsp'"><strong>PW 재설정</strong></button>
+                            </div>
+                        </div>
+                    </form>
+                  
+                      
+                </div>
+                <div id="tab2" class="tabcontent" style="display: none;">
+                    <form class="login-Form" action="/VIEW/login/login" method="post">
+                    	<input type="hidden" name="authority" value="2" >
+                        <h2>관리자 로그인</h2>
+                        <div class="login-Form-inner">
+                          <div class="idform">
+                            <input type="text" name="studentID" id="id" placeholder="학번"><br>
+                          </div>
+                          <div class="pwform">
+                            <input type="password" name="password" id="pw" placeholder="비밀번호">
+                          </div>
+                          <button id="second-btn" type="submit"><strong>로그인</strong></button>
+                          
+                      </div>
+                    </form>
+                  
+                      
+                </div>
+
+                <script type="text/javascript" src="login.jsp"></script>
+            </div>
+        </section>
+
+        <footer>
+          <img src="images/logo.PNG">
+          <ul class="footer-list">
+            <li class="item"><strong>국립한국교통대:</strong> <a href="https://www.ut.ac.kr/">https://www.ut.ac.kr/</a></li>
+            <span id="item-developer"><li>Web Developers</li></span>
+            <li class="item"><strong>1726066 류지원</strong> E-mail: won97051@gmail.com</li>
+            <li class="item"><strong>1726010 김종원</strong> E-mail: kng05310@a.ut.ac.kr</li>
+            <li class="item"><strong>1726025 신현식</strong> E-mail: car5800@naver.com</li>
+          </ul>
+
+          <ul class="footer-second-list">
+            <li class="item"><strong>충주캠퍼스</strong> 주소: 27469 충청북도 충주시 대학로 50</li>
+            <li class="item"><strong>증평캠퍼스</strong> 주소: 27909 충청북도 증평군 대학로 61</li>
+            <li class="item"><strong>의왕캠퍼스</strong> 주소16106 경기도 의왕시 철도박물관로 157</li>
+          </ul>
+
+          <ul class="footer-third-list">
+            <li class="item"><strong>TEL</strong>.043-841-5114 </li>
+            <li class="item"><strong>TEL</strong>.043-820-5114</li>
+            <li class="item"><strong>TEL</strong>.031-460-0500</li>
+          </ul>
+        </footer>
+
+    </body>
 </html>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>

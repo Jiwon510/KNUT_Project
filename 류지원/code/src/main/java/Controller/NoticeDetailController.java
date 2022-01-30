@@ -29,9 +29,9 @@ public class NoticeDetailController extends HttpServlet {
 		String writer = (String)session.getAttribute("studentID");
 		String content = request.getParameter("content");
 		
-		System.out.println(num);
-		System.out.println(writer);
-		System.out.println(content);
+//		System.out.println(num);
+//		System.out.println(writer);
+//		System.out.println(content);
 //		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
 		
 		
