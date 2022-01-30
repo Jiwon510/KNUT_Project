@@ -23,7 +23,6 @@ public class IndexController extends HttpServlet{
 		MemberService service = new MemberService();
 		String name = service.getMemberName(studentID);
 		session.setAttribute("name", name);
-		
 		request.setAttribute("name", name);
 		
 		request.getRequestDispatcher("/VIEW/index/index.jsp").forward(request, response);

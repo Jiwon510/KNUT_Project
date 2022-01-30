@@ -18,33 +18,46 @@
 							<tbody>
 								<tr>
 									<th>제목</th>
-									<td class="text-align-left text-indent text-strong text-orange" colspan="3">${n.title }</td>
-								</tr>
-								<tr>
-									<th>작성일</th>
-									<td class="text-align-left text-indent" colspan="3">${n.date }</td>
+									<td class="text-align-left text-indent text-strong text-orange" colspan="3">${notice.title }</td>
 								</tr>
 								<tr>
 									<th>작성자</th>
-									<td>${n.writer }</td>
+									<td>${notice.writer }</td>	
+								</tr>
+								<tr>
+									<th>작성일</th>
+									<td class="text-align-left text-indent" colspan="3">${notice.date }</td>
 								</tr>
 								<tr>
 									<th>내용</th>
-									<td>${n.content }</td>
+									<td>${notice.content }</td>
 								</tr>
 								<!-- 수정필요 -->
 								<tr>
 									<th>좋아요</th>
-									<td>3</td>
+									<td>${notice.like_count }</td>
+								</tr>
+								<tr>
+									<th>첨부파일</th>
+									<td>
+										<c:forTokens var="filename" items="${notice.file }" delims="," varStatus="st">
+											<a href="${filename }">${filename }</a>
+											<c:if test="${!st.last }">
+												/
+											</c:if>
+										</c:forTokens>
+
+									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div> <br>
+	</main>
 					
 
 	<table>
 		<thead>
-			<c:forEach var="n" items="${list_2}">
+			<c:forEach var="n" items="${list}">
 			<tr>
 				<th scope="cols">${n.writer }</th>
 				<th scope="cols">${n.content }</th>
@@ -63,13 +76,12 @@
 	</table> <br>
 	
 	
-	<form action="/VIEW/noticeDetail/noticeDetail">
-		<input type="hidden" name="num" value=${ n.num } >
+	<!-- <form action="/VIEW/comment/comment">
 		<div class="mb-3">
-			<textarea class="form-control" rows="5" name="content" id="content" placeholder="댓글을 입력해주세요" ></textarea>
+			<textarea rows="5" name="content" id="content" placeholder="댓글을 입력해주세요" ></textarea>
 		</div>
 		<button type="submit" id="btnInsert">댓글입력</button>
-	</form>
+	</form> -->
 	
 
 

@@ -23,25 +23,19 @@ public class NoticeDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		
 		int num = Integer.parseInt(request.getParameter("num"));
-		String writer = (String)session.getAttribute("studentID");
-		String content = request.getParameter("content");
 		
-//		System.out.println(num);
-//		System.out.println(writer);
-//		System.out.println(content);
-//		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
+
+		NoticeService N_service = new NoticeService(); 
+		CommentService C_service = new CommentService();
 		
+		Notice notice = N_service.getNotice(num);
+		System.out.println(notice);
+//		List<Comment> list = C_service.getCommentList(num);
 		
-		NoticeService service = new NoticeService(); 
-		CommentService service2 = new CommentService();
-		List<Comment> list = service2.getCommentList(num);
-		
-		request.setAttribute("list", list);
+//		request.setAttribute("list", list);
+		request.setAttribute("notice", notice);
 		
 		request.getRequestDispatcher("/VIEW/noticeDetail/noticeDetail.jsp").forward(request, response);
-//		response.sendRedirect("VIEW/noticeDetail/noticeDetail.jsp");
 	}
 }

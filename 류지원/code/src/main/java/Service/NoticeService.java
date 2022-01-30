@@ -136,8 +136,8 @@ public class NoticeService {
 	public Notice getNotice(int num) {
 		Notice notice = null;
 		
-		String sql = "SELECT title, writer, date, content FROM NOTICE WHERE num = ?";
-
+		String sql = "SELECT * FROM NOTICE WHERE num = ?";
+			
 		Connection conn = null;
 		PreparedStatement pst = null;	
 		ResultSet rs = null;
@@ -152,23 +152,25 @@ public class NoticeService {
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, num);
 		
-			
 			rs = pst.executeQuery();
+			
 
-			if (rs.next()) {
+			while (rs.next()) {
 				String title = rs.getString("title");
 				String writer = rs.getString("writer");
 				Date date = rs.getDate("date");
 				String content = rs.getString("content");
-
+				int like_count = rs.getInt("like_count");
+				String file = rs.getString("file");
+				
 				notice = new Notice(
 						title
 						, writer
 						, date
 						, content
+						, like_count
+						, file
 						);
-				
-
 			}
 		} catch (Exception e) {
 			System.out.println(e);

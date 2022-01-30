@@ -67,7 +67,7 @@ public class CommentService {
 		
 		List<Comment> list = new ArrayList<>();
 		
-		String sql = "select * from comment where notice_num = ?";
+		String sql = "SELECT * FROM test.comment where notice_num = ? order by date desc limit 5;";
 		
 		Connection conn = null;
 		PreparedStatement pst = null;

@@ -10,12 +10,16 @@ public class Notice {
 	private String content;
 	private Date date;
 	private int comment_count;
+	private int like_count;
+	private String file;
 	
-	public Notice(String title, String writer, Date date, String content) {
+	public Notice(String title, String writer, Date date, String content, int like_count, String file) {
 		this.title = title;
 		this.writer = writer;
 		this.date = date;
 		this.content = content;
+		this.like_count = like_count;
+		this.file = file;
 	}
 	
 	public Notice(int n, int num, String title, String writer, Date date, int comment_count) {
@@ -27,7 +31,7 @@ public class Notice {
 		this.comment_count = comment_count;
 	}
 	
-	public Notice(int n, int num, String title, String writer, String content, Date date, int comment_count) {
+	public Notice(int n, int num, String title, String writer, String content, Date date, int comment_count, String file) {
 		this.n = n;
 		this.num = num;
 		this.title = title;
@@ -35,7 +39,9 @@ public class Notice {
 		this.content = content;
 		this.date = date;
 		this.comment_count = comment_count;
+		this.file = file;
 	}
+
 
 	public int getN() {
 		return n;
@@ -93,9 +99,26 @@ public class Notice {
 		this.comment_count = comment_count;
 	}
 
+	public int getLike_count() {
+		return like_count;
+	}
+
+	public void setLike_count(int like_count) {
+		this.like_count = like_count;
+	}
+
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
+	}
+
 	@Override
 	public String toString() {
 		return "Notice [n=" + n + ", num=" + num + ", title=" + title + ", writer=" + writer + ", content=" + content
-				+ ", date=" + date + ", comment_count=" + comment_count + "]";
+				+ ", date=" + date + ", comment_count=" + comment_count + ", like_count=" + like_count + ", file="
+				+ file + "]";
 	}
 }
