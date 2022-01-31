@@ -12,31 +12,31 @@ import javax.servlet.http.HttpSession;
 
 import com.mysql.cj.Session;
 
+import Service.BoardService;
 import Service.CommentService;
-import Service.NoticeService;
+import entity.Board;
 import entity.Comment;
-import entity.Notice;
 
-@WebServlet("/VIEW/noticeDetail/noticeDetail")
-public class NoticeDetailController extends HttpServlet {
+
+@WebServlet("/VIEW/boardDetail/boardDetail")
+public class BoardDetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
 		
-		
 
-		NoticeService N_service = new NoticeService(); 
+		BoardService B_service = new BoardService(); 
 		CommentService C_service = new CommentService();
 		
-		Notice notice = N_service.getNotice(num);
-		System.out.println(notice);
+		Board board = B_service.getBoard(num);
+		System.out.println(board);
 //		List<Comment> list = C_service.getCommentList(num);
 		
 //		request.setAttribute("list", list);
-		request.setAttribute("notice", notice);
+		request.setAttribute("b", board);
 		
-		request.getRequestDispatcher("/VIEW/noticeDetail/noticeDetail.jsp").forward(request, response);
+		request.getRequestDispatcher("/VIEW/boardDetail/boardDetail.jsp").forward(request, response);
 	}
 }

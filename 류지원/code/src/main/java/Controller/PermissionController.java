@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,54 +13,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Service.MemberService;
+import entity.User;
+
 @WebServlet("/VIEW/permission/permission")
 public class PermissionController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String check = request.getParameter("check");
+		String field_ = request.getParameter("search");
+		String query_ = request.getParameter("word");
+		String page_ = request.getParameter("p");
 		
-		String query = "UPDATE user SET authority = ?";
-		Connection conn = null;
-		PreparedStatement pst = null;
-		ResultSet rs = null;
-		
-		String dbURL = "jdbc:mysql://localhost:4406/test";
-		String dbID = "root";
-		String dbPassword = "root";
-	
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-			pst = conn.prepareStatement(query);
-			
-			/*
-			 * pst.setString(1, 1); rs = pst.executeUpdate();
-			 */
-			
-			if(rs.next()) {
-				if("1".equals(check)) {
-					
-				}
-				
-			}
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		} finally {
-			try {
-				if(rs != null)
-					rs.close();
-				
-				if(pst != null)
-					pst.close();
-				
-				if(conn != null)
-					conn.close();
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-		}
-		
-		response.sendRedirect("/view/main/admin/non_memberList.jsp");
+		String field = "name";
+		if (field_ != null && !field_.equals(""))
+			field = field_;
+
+		String query = "";
+		if (query_ != null && !query_.equals(""))
+			query = query_;
+
+		int page = 1;
+		if (page_ != null && !page_.equals(""))
+			page = Integer.parseInt(page_);
+
+		MemberService service = new MemberService();
+		List<User> list = service.getNonMember(field, query, page);
+		int count = service.getMemberCount(field, query);
+		request.setAttribute("count", count);
+		request.setAttribute("list", list);
+      
+      request.getRequestDispatcher("/VIEW/permission/permission.jsp").forward(request, response);
 	}
 }

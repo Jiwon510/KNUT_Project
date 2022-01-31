@@ -17,7 +17,7 @@
 	<article>
 		<div class="container" role="main">
 			<h2>자유게시판 글쓰기</h2>
-			<form name="form" id="form" role="form" method="get" action="/view/main/boardwrite">
+			<form name="form" id="form" role="form" method="get" action="/VIEW/boardWrite/boardWrite">
 				<div class="mb-3">
 					<label for="title">제목</label>
 					<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">
@@ -32,7 +32,7 @@
 				</div>
 			<div >
 				<button type="submit" class="btn float-right btn btn-sm btn-primary" id="btnSave">저장</button>
-				<button type="button" class="btn float-right btn btn-sm btn-primary" onclick="location.href='/view/main/board'" id="btnList">목록</button>
+				<button type="button" class="btn float-right btn btn-sm btn-primary" onclick="location.href='/VIEW/board/board'" id="btnList">목록</button>
 			</div>
 			</form>
 		</div>

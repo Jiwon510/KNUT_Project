@@ -9,11 +9,11 @@ import java.util.List;
 import entity.Write;
 
 public class WriteService {
-	public List<Write> WriteNotice(String title, String writer, String content) {
+	public List<Write> WriteNotice(String title, String writer, String content, int like_count) {
 		
 		List<Write> list= new ArrayList<>();
 		
-		String sql = "INSERT INTO NOTICE(title, writer, content) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO NOTICE(title, writer, content, like_count) VALUES (?, ?, ?, 0)";
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -37,6 +37,7 @@ public class WriteService {
 					title
 					,writer
 					,content
+					,like_count
 					);
 			list.add(write);
 			
@@ -57,11 +58,11 @@ public class WriteService {
 		return list;
 	}
 	
-public List<Write> WriteBoard(String title, String writer, String content) {
+public List<Write> WriteBoard(String title, String writer, String content, int like_count) {
 		
 		List<Write> list= new ArrayList<>();
 		
-		String sql = "INSERT INTO BOARD(title, writer, content) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO BOARD(title, writer, content, like_count) VALUES (?, ?, ?, 0)";
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -86,6 +87,7 @@ public List<Write> WriteBoard(String title, String writer, String content) {
 					title
 					,writer
 					,content
+					,like_count
 					);
 			list.add(write);
 			

@@ -8,26 +8,26 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Notice;
+import entity.Board;
 
-public class NoticeService {
+public class BoardService {
 
-	public List<Notice> getNoticeList() {
+	public List<Board> getBoardList() {
 
-		return getNoticeList("title", "", 1);
+		return getBoardList("title", "", 1);
 	}
 
-	public List<Notice> getNoticeList(int page) {
+	public List<Board> getBoardList(int page) {
 
-		return getNoticeList("title", "", page);
+		return getBoardList("title", "", page);
 	}
 
-	public List<Notice> getNoticeList(String field, String query, int page) {
+	public List<Board> getBoardList(String field, String query, int page) {
 
-		List<Notice> list = new ArrayList<>();
+		List<Board> list = new ArrayList<>();
 
-		String sql = "SELECT @ROWNUM := @ROWNUM +1 AS n, NOTICE.*" 
-		+ " FROM NOTICE, (SELECT @ROWNUM := 0)TMP WHERE " +field+ " LIKE ? ORDER BY date DESC limit ?, 10;";
+		String sql = "SELECT @ROWNUM := @ROWNUM +1 AS n, Board_VIEW.*" 
+		+ " FROM BOARD_VIEW, (SELECT @ROWNUM := 0)TMP WHERE " +field+ " LIKE ? ORDER BY date DESC limit ?, 10;";
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -52,15 +52,19 @@ public class NoticeService {
 				String title = rs.getString("title");
 				String writer = rs.getString("writer");
 				Date date = rs.getDate("date");
+				int comment_count = rs.getInt("comment_count");
 
-				Notice notice = new Notice(
+				Board Board = new Board(
 						n
 						, num
 						, title
 						, writer
 						, date
+						, comment_count
 				);
-				list.add(notice);
+				list.add(Board);
+				
+				
 			}
 			
 		} catch (Exception e) {
@@ -83,15 +87,15 @@ public class NoticeService {
 		return list;
 	}
 
-	public int getNoticeCount() {
+	public int getBoardCount() {
 
-		return getNoticeCount("title", "");
+		return getBoardCount("title", "");
 	}
 
-	public int getNoticeCount(String field, String query) {
+	public int getBoardCount(String field, String query) {
 		int count = 0;
 
-		String sql = "SELECT COUNT(num) as count FROM NOTICE"; 
+		String sql = "SELECT COUNT(num) as count FROM Board"; 
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -129,10 +133,10 @@ public class NoticeService {
 		return count;
 	}
 
-	public Notice getNotice(int num) {
-		Notice notice = null;
+	public Board getBoard(int num) {
+		Board Board = null;
 		
-		String sql = "SELECT * FROM NOTICE WHERE num = ?";
+		String sql = "SELECT * FROM Board WHERE num = ?";
 			
 		Connection conn = null;
 		PreparedStatement pst = null;	
@@ -159,7 +163,7 @@ public class NoticeService {
 				int like_count = rs.getInt("like_count");
 				String file = rs.getString("file");
 				
-				notice = new Notice(
+				Board = new Board(
 						title
 						, writer
 						, date
@@ -184,15 +188,15 @@ public class NoticeService {
 				System.out.println(e);
 			}
 		}
-		return notice;
+		return Board;
 	}
 
-	public Notice getNextNotice(int id) {
+	public Board getNextBoard(int id) {
 //		구문 작성 필요
 		return null;
 	}
 
-	public Notice getPrevNotice(int id) {
+	public Board getPrevBoard(int id) {
 //		구문 작성 필요
 		return null;
 	}

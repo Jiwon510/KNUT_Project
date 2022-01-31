@@ -22,15 +22,6 @@ public class Notice {
 		this.file = file;
 	}
 	
-	public Notice(int n, int num, String title, String writer, Date date, int comment_count) {
-		this.n = n;
-		this.num = num;
-		this.title = title;
-		this.writer = writer;
-		this.date = date;
-		this.comment_count = comment_count;
-	}
-	
 	public Notice(int n, int num, String title, String writer, String content, Date date, int comment_count, String file) {
 		this.n = n;
 		this.num = num;
@@ -42,6 +33,14 @@ public class Notice {
 		this.file = file;
 	}
 
+
+	public Notice(int n, int num, String title, String writer, Date date) {
+		this.n = n;
+		this.num = num;
+		this.title = title;
+		this.writer = writer;
+		this.date = date;
+	}
 
 	public int getN() {
 		return n;
