@@ -13,10 +13,10 @@
 <body>
 	<!-- ---------------------------------header---------------------------------------- -->
 	<div class="header">
-		<jsp:include page="/VIEW/memberlist/memberlistHeader.jsp"></jsp:include>
+		<jsp:include page="/VIEW/permission/permissionHeader.jsp"></jsp:include>
 	</div>
 	<!-- ---------------------------------main------------------------------------------ -->
-	<form action="/VIEW/memberlist/memberlist" method="get">
+	<form action="/VIEW/permission/permission" method="get">
 		<div class="row">
 			<div class="col-md-8 mb-3">
 				<select class="custom-select d-block w-100" name="search">
@@ -32,7 +32,7 @@
 		</div>
 	</form>
 	
-	<form action="/VIEW/memberlist/memberlist" method="post">
+	<form action="/VIEW/permission/permission" method="post">
 	<table class="type08">
 		<thead>
 			<tr>
@@ -44,7 +44,6 @@
 		</thead>
 		<tbody>
 			<c:forEach var="n" items="${list}">
-				<%-- <input type="hidden" name="n" value=${n.num } > --%>
 				<tr>
 					<td>${n.name }</td>
 					<td>${n.studentID }</td>

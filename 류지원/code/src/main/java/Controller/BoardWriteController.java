@@ -23,10 +23,12 @@ public class BoardWriteController extends HttpServlet{
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
+		int like_count = 0;
 		
 		WriteService service = new WriteService();
-	    List<Write> list = service.WriteBoard(title, writer, content);
-		
-		response.sendRedirect("/view/main/board");
+	    List<Write> list = service.WriteBoard(title, writer, content, like_count);
+	    
+	    request.setAttribute("list", list);	
+	    request.getRequestDispatcher("/VIEW/board/board").forward(request, response);
 	}
 }

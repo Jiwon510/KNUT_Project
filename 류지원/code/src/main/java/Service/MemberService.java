@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class MemberService {
 			
 			List<User> list= new ArrayList<>();
 			
-			String sql = "SELECT name, studentID, department FROM USER WHERE authority = 1"
+			String sql = "SELECT num, name, studentID, department FROM USER WHERE authority = 1"
 					+ " AND " +field+ " LIKE ? ";
 					
 		    Connection conn = null;
@@ -36,12 +37,14 @@ public class MemberService {
 		       rs = pst.executeQuery();
 		         
 		       while(rs.next()) {
+		       int num = rs.getInt("num");   
 		       String name = rs.getString("name");
 		       String studentID = rs.getString("studentID");
 		       String department = rs.getString("department");
 		         
 		       User user = new User(
-		              name
+		    		  num
+		             ,name
 		             ,studentID
 		             ,department
 		       );
@@ -72,7 +75,7 @@ public class MemberService {
 		
 		List<User> list= new ArrayList<>();
 		
-		String sql = "SELECT name, studentID, department FROM USER WHERE authority = 0"
+		String sql = "SELECT num, name, studentID, department FROM USER WHERE authority = 0"
 				+ " AND " +field+ " LIKE ? ";
 				
 	    Connection conn = null;
@@ -92,12 +95,14 @@ public class MemberService {
 	       rs = pst.executeQuery();
 	         
 	       while(rs.next()) {
+	       int num = rs.getInt("num");
 	       String name = rs.getString("name");
 	       String studentID = rs.getString("studentID");
 	       String department = rs.getString("department");
 	         
 	       User user = new User(
-	              name
+	    		  num
+	             ,name
 	             ,studentID
 	             ,department
 	       );
@@ -247,5 +252,52 @@ public class MemberService {
 			}
 		}
 		return name;
+	}
+
+	public int delMemberAll(int[] ids) {
+		int result = 0;
+		
+		String params = "";
+		
+		for (int i=0; i<ids.length; i++) {
+			params += ids[i];
+			if(i<ids.length-1)
+				params += ",";
+		}
+		
+		String sql = "DELETE FROM USER WHERE num IN ("+params+")"; 
+
+		Connection conn = null;
+		Statement st = null;
+		ResultSet rs = null;
+
+		String dbURL = "jdbc:mysql://localhost:4406/test";
+		String dbID = "root";
+		String dbPassword = "root";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			st = conn.createStatement();
+			
+			result = st.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+
+				if (st != null)
+					st.close();
+
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+		return result;
 	}
 }

@@ -26,7 +26,7 @@
       <li><a href="/VIEW/board/board">자유게시판</a></li>
       <c:if test="${authority eq '2'}">
       	<li><a href="/VIEW/memberlist/memberlist">회원목록</a></li>
-      	<li><a href="/VIEW/non_memberlist/non_memberlist">승인목록</a></li>
+      	<li><a href="/VIEW/permission/permission">승인목록</a></li>
       </c:if>
     </ul>
     <div class="tabcontent">

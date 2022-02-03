@@ -13,27 +13,25 @@ import javax.servlet.http.HttpSession;
 import Service.CommentService;
 import entity.Comment;
 
-@WebServlet("/comment")
+@WebServlet("/VIEW/comment/comment")
 public class CommentController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-//		HttpSession session = request.getSession();
-//		String name = (String)session.getAttribute("name");
+		HttpSession session = request.getSession();
+		String name = (String)session.getAttribute("name");
 		
-//		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
-		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
+//		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
 		
-//		System.out.println(name);
-//		System.out.println(content);
-//		System.out.println(notice_num);
+		System.out.println(name);
+		System.out.println(content);
 		
 		
-		CommentService service = new CommentService();
-//	    List<Comment> list = service.insertComment(name, content, notice_num);
-	    List<Comment> list_2 = service.getCommentList(notice_num);
+//		CommentService service = new CommentService();
+//	    List<Comment> w_list = service.insertComment(name, content, notice_num);
+
 		
 		response.sendRedirect("/VIEW/noticeDetail/noticeDetail"	);
 	}

@@ -18,24 +18,24 @@
 							<tbody>
 								<tr>
 									<th>제목</th>
-									<td class="text-align-left text-indent text-strong text-orange" colspan="3">${notice.title }</td>
+									<td class="text-align-left text-indent text-strong text-orange" colspan="3">${b.title }</td>
 								</tr>
 								<tr>
 									<th>작성자</th>
-									<td>${notice.writer }</td>	
+									<td>${b.writer }</td>	
 								</tr>
 								<tr>
 									<th>작성일</th>
-									<td class="text-align-left text-indent" colspan="3">${notice.date }</td>
+									<td class="text-align-left text-indent" colspan="3">${b.date }</td>
 								</tr>
 								<tr>
 									<th>내용</th>
-									<td>${notice.content }</td>
+									<td>${b.content }</td>
 								</tr>
 								<!-- 수정필요 -->
 								<tr>
 									<th>좋아요</th>
-									<td>${notice.like_count }</td>
+									<td>${b.like_count }</td>
 								</tr>
 								<tr>
 									<th>첨부파일</th>

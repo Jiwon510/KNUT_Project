@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,13 +18,13 @@ import javax.servlet.http.HttpSession;
 public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		String studentID = request.getParameter("studentID");
 		String password = request.getParameter("password");
 		String authority = request.getParameter("authority");
-		
-//		System.out.println(studentID);
-//		System.out.println(password);
-//		System.out.println(authority);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("authority", authority);
@@ -49,11 +50,21 @@ public class LoginController extends HttpServlet {
 			pst.setString(3, authority);
 			rs = pst.executeQuery();
 			
-			if(rs.next()) {
+			
+			if(rs.next()) {	
 				response.sendRedirect("/VIEW/index/index");
 			}
 			else {
-				response.sendRedirect("/VIEW/login/login.jsp");
+				if (studentID.equals("") && password.equals("")) 
+					out.print("<script>alert('아이디와 비밀번호를 작성해주세요')</script>");
+				
+				else if (studentID.equals("")) 
+					out.print("<script>alert('아이디를 확인해주세요')</script>");
+				
+				else if(password.equals(""))
+					out.print("<script>alert('비밀번호를 확인해주세요')</script>");
+				out.print("<script>location.href='/VIEW/login/login.jsp'</script>");
+				out.close();
 			}
 		} catch (Exception e) {
 			System.out.println(e);

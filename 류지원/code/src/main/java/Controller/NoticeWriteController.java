@@ -25,10 +25,12 @@ public class NoticeWriteController extends HttpServlet{
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
+		int like_count = 0;
 		
 		WriteService service = new WriteService();
-	    List<Write> list = service.WriteNotice(title, writer, content);
+	    List<Write> list = service.WriteNotice(title, writer, content, like_count);
 		
-		response.sendRedirect("/VIEW/notice/notice"	);
+	    request.setAttribute("list", list);	
+	    request.getRequestDispatcher("/VIEW/notice/notice").forward(request, response);
 	}
 }

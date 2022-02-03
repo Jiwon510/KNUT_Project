@@ -15,18 +15,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Service.MemberService;
+import Service.NoticeService;
 import entity.User;
 
 @WebServlet("/VIEW/memberlist/memberlist")
 public class MemberListController extends HttpServlet {
-   @Override
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-         throws ServletException, IOException {
-	   
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String[] delIds = request.getParameterValues("del_id");
+		
+		MemberService service = new MemberService();
+		int[] ids = new int[delIds.length];
+		for(int i=0; i<delIds.length; i++)
+			ids[i] = Integer.parseInt(delIds[i]);
+		
+		int result = service.delMemberAll(ids);
+		
+		response.sendRedirect("/VIEW/memberlist/memberlist");
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String field_ = request.getParameter("search");
 		String query_ = request.getParameter("word");
 		String page_ = request.getParameter("p");
-		
+
 		String field = "name";
 		if (field_ != null && !field_.equals(""))
 			field = field_;
@@ -44,7 +60,7 @@ public class MemberListController extends HttpServlet {
 		int count = service.getMemberCount(field, query);
 		request.setAttribute("count", count);
 		request.setAttribute("list", list);
-      
-      request.getRequestDispatcher("/VIEW/memberlist/memberlist.jsp").forward(request, response);
-   }   
+
+		request.getRequestDispatcher("/VIEW/memberlist/memberlist.jsp").forward(request, response);
+	}  			
 }
