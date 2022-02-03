@@ -31,6 +31,8 @@
 			</div>
 		</div>
 	</form>
+	
+	<form action="/VIEW/memberlist/memberlist" method="post">
 	<table class="type08">
 		<thead>
 			<tr>
@@ -42,11 +44,12 @@
 		</thead>
 		<tbody>
 			<c:forEach var="n" items="${list}">
+				<%-- <input type="hidden" name="n" value=${n.num } > --%>
 				<tr>
 					<td>${n.name }</td>
 					<td>${n.studentID }</td>
 					<td>${n.department }</td>
-					<td><input type="checkbox" name="check"></td>
+					<td><input type="checkbox" name="del_id" value="${n.num }"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -102,5 +105,7 @@
 		<button class="btn btn-danger btn-lg btn-block" style="float: right;"
 			type="submit">삭제</button>
 	</div>
+	</form>
+	
 </body>
 </html>

@@ -50,6 +50,13 @@ public class User {
 		this.authority = authority;
 	}
 
+	public User(int num, String name, String studentID, String department) {
+		this.num = num;
+		this.name = name;
+		this.studentID = studentID;
+		this.department = department;
+	}
+
 	public int getNum() {
 		return num;
 	}

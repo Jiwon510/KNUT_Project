@@ -28,6 +28,8 @@
 	      </div>
 	   </div>
    </form>
+   
+   <form action="/VIEW/notice/notice" method="post">
    <table class="type08">
       <thead>
          <tr>
@@ -47,7 +49,8 @@
             <td><a href="/VIEW/noticeDetail/noticeDetail?num=${n.num}">${n.title }</a></td>
             <td>${n.writer }</td>
             <td>${n.date }</td>
-            <td><input type="checkbox" name= "check"></td>
+            <td><input type="checkbox" name= "del_id" value="${n.num}"></td>
+            
          </tr>
          </c:forEach>
       </tbody>
@@ -107,6 +110,7 @@
          <button class="btn btn-success btn-lg btn-block" onclick="location.href='/VIEW/noticeWrite/noticeWrite.jsp'" style="float:right;" type="submit">글쓰기</button>
       </div>
    </c:if>
+   </form>
    
 </body>
 </html>

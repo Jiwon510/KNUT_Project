@@ -19,6 +19,21 @@ import entity.User;
 @WebServlet("/VIEW/permission/permission")
 public class PermissionController extends HttpServlet{
 	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String[] delIds = request.getParameterValues("del_id");
+		
+		MemberService service = new MemberService();
+		int[] ids = new int[delIds.length];
+		for(int i=0; i<delIds.length; i++)
+			ids[i] = Integer.parseInt(delIds[i]);
+		
+		int result = service.delMemberAll(ids);
+		
+		response.sendRedirect("/VIEW/permission/permission");
+	}
+	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String field_ = request.getParameter("search");
 		String query_ = request.getParameter("word");

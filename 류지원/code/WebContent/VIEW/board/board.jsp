@@ -28,6 +28,8 @@
 	      </div>
 	   </div>
    </form>
+   
+   <form action="/VIEW/board/board" method="post">
    <table class="type08">
       <thead>
          <tr>
@@ -47,7 +49,7 @@
             <td><a href="/VIEW/boardDetail/boardDetail?num=${n.num}">${n.title }</a><span>[${n.comment_count }]</span></td>
             <td>${n.writer }</td>
             <td>${n.date }</td>
-            <td><input type="checkbox" name= "check"></td>
+            <td><input type="checkbox" name= "del_id" value="${n.num }"></td>
          </tr>
          </c:forEach>
       </tbody>
@@ -106,6 +108,7 @@
          <button class="btn btn-danger btn-lg btn-block" style="float:right;" type="submit">삭제</button>
          <button class="btn btn-success btn-lg btn-block" onclick="location.href='/VIEW/boardWrite/boardWrite.jsp'" style="float:right;" type="submit">글쓰기</button>
       </div>
+      </form>
 
    
 </body>

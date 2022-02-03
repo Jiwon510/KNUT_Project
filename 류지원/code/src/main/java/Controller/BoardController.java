@@ -16,10 +16,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Service.BoardService;
+import Service.NoticeService;
 import entity.Board;
 
 @WebServlet("/VIEW/board/board")
 public class BoardController extends HttpServlet{
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String[] delIds = request.getParameterValues("del_id");
+		
+		BoardService service = new BoardService();
+		int[] ids = new int[delIds.length];
+		for(int i=0; i<delIds.length; i++)
+			ids[i] = Integer.parseInt(delIds[i]);
+		
+		int result = service.delBoardAll(ids);
+		
+		response.sendRedirect("/VIEW/notice/notice");	
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {

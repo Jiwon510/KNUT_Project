@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -200,4 +201,50 @@ public class BoardService {
 //		구문 작성 필요
 		return null;
 	}
+
+	public int delBoardAll(int[] ids) {
+		int result = 0;
+		
+		String params = "";
+		
+		for (int i=0; i<ids.length; i++) {
+			params += ids[i];
+			if(i<ids.length-1)
+				params += ",";
+		}
+		
+		String sql = "DELETE FROM NOTICE WHERE NUM IN ("+params+")"; 
+
+		Connection conn = null;
+		Statement st = null;
+		ResultSet rs = null;
+
+		String dbURL = "jdbc:mysql://localhost:4406/test";
+		String dbID = "root";
+		String dbPassword = "root";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			st = conn.createStatement();
+			
+			result = st.executeUpdate(sql);
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+
+				if (st != null)
+					st.close();
+
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+		return result;
+	}	
 }
