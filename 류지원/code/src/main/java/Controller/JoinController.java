@@ -23,8 +23,10 @@ import entity.User;
 public class JoinController extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	  request.setCharacterEncoding("UTF-8");
+	  
       
-      String name = request.getParameter("name");
+	  String name = request.getParameter("name");
       String studentID = request.getParameter("studentID");
       String password = request.getParameter("password");
       String department = request.getParameter("department");
@@ -33,10 +35,10 @@ public class JoinController extends HttpServlet {
       String detailAddress = request.getParameter("detailAddress");
       String motive = request.getParameter("motive");
       String authority = request.getParameter("authority");
-      
+     
       JoinService service = new JoinService();
       List<User> list = service.getjoin(name, studentID, password, department, email, address, detailAddress, motive, authority);
           
-      response.sendRedirect("VIEW/login/login.jsp");
+      response.sendRedirect("/VIEW/login/login.jsp");
    }
 }

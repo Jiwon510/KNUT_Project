@@ -37,7 +37,7 @@
                             </div>
                             <button id="btn" type="submit"><strong>로그인</strong></button>
                             <div class="links">
-                              <button class="links-btn" type="button" onclick="location.href='/VIEW/join/join.jsp'"><strong>회원가입</strong></button>
+                              <button class="links-btn" type="button" onclick="location.href='/VIEW/agreement/agreement.jsp'"><strong>회원가입</strong></button>
                               <button class="links-btn" type="button" onclick="location.href='/VIEW/find/find.jsp'"><strong>PW 재설정</strong></button>
                             </div>
                         </div>

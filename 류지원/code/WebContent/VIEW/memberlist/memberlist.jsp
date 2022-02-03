@@ -11,7 +11,7 @@
 <title>동아리 관리 프로그램</title>
 </head>
 <body>
-	<!-- ---------------------------------header---------------------------------------- -->
+	<!-- -----------------	----------------header---------------------------------------- -->
 	<div class="header">
 		<jsp:include page="/VIEW/memberlist/memberlistHeader.jsp"></jsp:include>
 	</div>
