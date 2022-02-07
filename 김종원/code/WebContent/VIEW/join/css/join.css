@@ -84,7 +84,7 @@ input {
 }
 
 .step_url {
-  /*@naver.com*/
+  
   position: absolute;
   top: 16px;
   right: 13px;
@@ -236,3 +236,12 @@ select {
   font-weight: 400;
   font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
+
+@media (min-width: 1580px){
+	.int_box{
+		width: 150px;
+	}
+	
+}
+
+
