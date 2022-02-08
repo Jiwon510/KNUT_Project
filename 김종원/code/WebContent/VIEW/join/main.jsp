@@ -55,10 +55,9 @@ function checkId() {
         error[0].innerHTML = "필수 정보입니다.";
         error[0].style.display = "block";
     } else if(!idPattern.test(id.value)) {
-        error[0].innerHTML = "숫자만 사용 가능합니다.";
         error[0].style.display = "block";
     } else {
-        error[0].innerHTML = "사용가능합니다!";
+        
         error[0].style.color = "#08A600";
         error[0].style.display = "block";
     }
@@ -108,12 +107,25 @@ function checkName() {
         error[3].innerHTML = "필수 정보입니다.";
         error[3].style.display = "block";
     } else if(!namePattern.test(userName.value) || userName.value.indexOf(" ") > -1) {
-        error[3].innerHTML = "한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)";
         error[3].style.display = "block";
     } else {
         error[3].style.display = "none";
     }
 }
+
+function checkDepartment() {
+    var namePattern = /[가-힣]/;
+    if(userName.value === "") {
+        error[3].innerHTML = "필수 정보입니다.";
+        error[3].style.display = "block";
+    } else if(!namePattern.test(userName.value) || userName.value.indexOf(" ") > -1) {
+        error[3].innerHTML = "한글만 사용하세요";
+        error[3].style.display = "block";
+    } else {
+        error[3].style.display = "none";
+    }
+}
+
 
 
 function isBirthCompleted() {
@@ -178,7 +190,7 @@ function checkPhoneNum() {
         error[7].innerHTML = "필수 정보입니다.";
         error[7].style.display = "block";
     } else if(!isPhoneNum.test(mobile.value)) {
-        error[7].innerHTML = "형식에 맞지 않는 번호입니다.";
+        
         error[7].style.display = "block";
     } else {
         error[7].style.display = "none";
@@ -210,6 +222,7 @@ function findAddr(){
 }
 
 /* 이메일 도메인 주소 가져오기 */
+
 var setEmailDomain = function(value) {
    $('#email_domain').val(value);
 }
