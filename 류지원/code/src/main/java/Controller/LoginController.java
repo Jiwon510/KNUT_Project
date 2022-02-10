@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
 		session.setAttribute("authority", authority);
 		session.setAttribute("studentID", studentID);
 		
-		String query = "SELECT studentID, password from User WHERE studentID = ? AND password = ? AND authority = ?";
+		String query = "SELECT studentID, password from userTBL WHERE studentID = ? AND password = ? AND authority = ?";
 		Connection conn = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;

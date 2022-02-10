@@ -7,33 +7,31 @@ public class Notice {
 	private int num;
 	private String title;
 	private String writer;
-	private String content;
 	private Date date;
-	private int comment_count;
-	private int like_count;
+	private String content;
 	private String file;
 	
-	public Notice(String title, String writer, Date date, String content, int like_count, String file) {
+	/* notice_datil */
+	public Notice(String title, String writer, Date date, String content, String file) {
 		this.title = title;
 		this.writer = writer;
 		this.date = date;
 		this.content = content;
-		this.like_count = like_count;
 		this.file = file;
 	}
 	
-	public Notice(int n, int num, String title, String writer, String content, Date date, int comment_count, String file) {
-		this.n = n;
-		this.num = num;
-		this.title = title;
-		this.writer = writer;
-		this.content = content;
-		this.date = date;
-		this.comment_count = comment_count;
-		this.file = file;
-	}
+//	public Notice(int n, int num, String title, String writer, String content, Date date, int comment_count, String file) {
+//		this.n = n;
+//		this.num = num;
+//		this.title = title;
+//		this.writer = writer;
+//		this.content = content;
+//		this.date = date;
+//		this.comment_count = comment_count;
+//		this.file = file;
+//	}
 
-
+	/* notice */
 	public Notice(int n, int num, String title, String writer, Date date) {
 		this.n = n;
 		this.num = num;
@@ -74,14 +72,6 @@ public class Notice {
 		this.writer = writer;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public Date getDate() {
 		return date;
 	}
@@ -90,20 +80,12 @@ public class Notice {
 		this.date = date;
 	}
 
-	public int getComment_count() {
-		return comment_count;
+	public String getContent() {
+		return content;
 	}
 
-	public void setComment_count(int comment_count) {
-		this.comment_count = comment_count;
-	}
-
-	public int getLike_count() {
-		return like_count;
-	}
-
-	public void setLike_count(int like_count) {
-		this.like_count = like_count;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public String getFile() {
@@ -116,8 +98,7 @@ public class Notice {
 
 	@Override
 	public String toString() {
-		return "Notice [n=" + n + ", num=" + num + ", title=" + title + ", writer=" + writer + ", content=" + content
-				+ ", date=" + date + ", comment_count=" + comment_count + ", like_count=" + like_count + ", file="
-				+ file + "]";
+		return "Notice [n=" + n + ", num=" + num + ", title=" + title + ", writer=" + writer + ", date=" + date
+				+ ", content=" + content + ", file=" + file + "]";
 	}
 }

@@ -31,7 +31,6 @@ public class NoticeController extends HttpServlet {
 		
 		response.sendRedirect("/VIEW/notice/notice");
 		
-		
 	}
 	
 	

@@ -8,48 +8,53 @@ public class User {
 	private String studentID;
 	private String password;
 	private String department;
+	private String birth;
+	private String gender;
 	private String email;
+	private String phone;
 	private String address;
-	private String detailAddress;
-	private Date date;
-	private String motive;
+	private String detailaddress;
 	private String authority;
 	
-	public User(String name, String studentID, String department) {
-		this.name = name;
-		this.studentID = studentID;
-		this.department = department;
-	}
+//	public User(String name, String studentID, String department) {
+//		this.name = name;
+//		this.studentID = studentID;
+//		this.department = department;
+//	}
 	
-	public User(String name, String studentID, String password, String department, String email,
-			String address, String detailAddress, String motive, String authority) {
-		this.name = name;
-		this.studentID = studentID;
-		this.password = password;
-		this.department = department;
-		this.email = email;
-		this.address = address;
-		this.detailAddress = detailAddress;
-		this.motive = motive;
-		this.authority = authority;
-	}
-	
-	
-	public User(int num, String name, String studentID, String password, String department, String email,
-			String address, String detailAddress, Date date, String motive, String authority) {
-		this.num = num;
+	/* 회원가입 */
+	public User(String name, String studentID, String password, String department, String birth, 
+			String gender, String email, String phone, String address, String detailaddress, String authority) {
 		this.name = name;
 		this.studentID = studentID;
 		this.password = password;
 		this.department = department;
+		this.birth = birth;
+		this.gender = gender;
 		this.email = email;
+		this.phone = phone;
 		this.address = address;
-		this.detailAddress = detailAddress;
-		this.date = date;
-		this.motive = motive;
+		this.detailaddress = detailaddress;
 		this.authority = authority;
 	}
-
+//	
+//	
+//	public User(int num, String name, String studentID, String password, String department, String email,
+//			String address, String detailAddress, Date date, String motive, String authority) {
+//		this.num = num;
+//		this.name = name;
+//		this.studentID = studentID;
+//		this.password = password;
+//		this.department = department;
+//		this.email = email;
+//		this.address = address;
+//		this.detailAddress = detailAddress;
+//		this.date = date;
+//		this.motive = motive;
+//		this.authority = authority;
+//	}
+//
+	/* 회원목록 */
 	public User(int num, String name, String studentID, String department) {
 		this.num = num;
 		this.name = name;
@@ -97,12 +102,36 @@ public class User {
 		this.department = department;
 	}
 
+	public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getAddress() {
@@ -113,28 +142,12 @@ public class User {
 		this.address = address;
 	}
 
-	public String getDetailAddress() {
-		return detailAddress;
+	public String getDetailaddress() {
+		return detailaddress;
 	}
 
-	public void setDetailAddress(String detailAddress) {
-		this.detailAddress = detailAddress;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getMotive() {
-		return motive;
-	}
-
-	public void setMotive(String motive) {
-		this.motive = motive;
+	public void setDetailaddress(String detailaddress) {
+		this.detailaddress = detailaddress;
 	}
 
 	public String getAuthority() {
@@ -148,7 +161,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [num=" + num + ", name=" + name + ", studentID=" + studentID + ", password=" + password
-				+ ", department=" + department + ", email=" + email + ", address=" + address + ", detailAddress="
-				+ detailAddress + ", date=" + date + ", motive=" + motive + ", authority=" + authority + "]";
+				+ ", department=" + department + ", birth=" + birth + ", gender=" + gender + ", email=" + email
+				+ ", phone=" + phone + ", address=" + address + ", detailaddress=" + detailaddress + ", authority="
+				+ authority + "]";
 	}
 }

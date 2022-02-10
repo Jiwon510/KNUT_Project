@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <title>로그인</title>
         <link rel="stylesheet" href="css/loginstyle.css">
-
+		<script type="text/javascript" src="/VIEW/login/login.js"></script>
 
     </head>
 
@@ -93,19 +93,3 @@
 
     </body>
 </html>
-
-<script>
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>

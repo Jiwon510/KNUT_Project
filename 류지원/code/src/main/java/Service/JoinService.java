@@ -11,17 +11,19 @@ import entity.User;
 
 public class JoinService {
 	
-	public List<User> getjoin(String name, String studentID, String password, String department, String email,
-			String address, String detailAddress, String motive, String authority) {
+	public List<User> getjoin(String name, String studentID, String password, String department, String birth,
+			String gender, String email, String phone, String address, String detailaddress, String authority) {
 		
 		List<User> list= new ArrayList<>();
 		boolean success = true;
 		
-		String sql = "INSERT INTO USER(name, studentID, password, department, email, address, detailAddress, motive, authority) VALUES (?, ? ,?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO userTBL(name, studentID, password, department, birth, gender, email, "
+				+ "phone, address, detailaddress, authority) "
+				+ "VALUES (?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		Connection conn = null;
 		PreparedStatement pst = null;
-		int rs;
+		int rs = 0;
 
 		String dbURL = "jdbc:mysql://localhost:4406/test";
 		String dbID = "root";
@@ -35,11 +37,13 @@ public class JoinService {
 			pst.setString(2, studentID);
 			pst.setString(3, password);
 			pst.setString(4, department);
-			pst.setString(5, email);
-			pst.setString(6, address);
-			pst.setString(7, detailAddress);
-			pst.setString(8, motive);
-			pst.setString(9, authority);
+			pst.setString(5, birth);
+			pst.setString(6, gender);
+			pst.setString(7, email);
+			pst.setString(8, phone);
+			pst.setString(9, address);
+			pst.setString(10, detailaddress);
+			pst.setString(11, authority);
 			
 			rs = pst.executeUpdate();
 
@@ -48,10 +52,12 @@ public class JoinService {
 					,studentID
 					,password
 					,department
+					,birth
+					,gender
 					,email
+					,phone
 					,address
-					,detailAddress
-					,motive
+					,detailaddress
 					,authority
 					);
 			list.add(user);

@@ -10,10 +10,10 @@
     
 			<!-- --------------------------- main --------------------------------------- -->
 		<main>
-				<h2 class="main title">공지사항</h2>
+				<h2 class="main title">자유게시판</h2>
 				
 				<div class="margin-top first">
-						<h3 class="hidden">공지사항 내용</h3>
+						<h3 class="hidden">자유게시판 내용</h3>
 						<table class="table">
 							<tbody>
 								<tr>

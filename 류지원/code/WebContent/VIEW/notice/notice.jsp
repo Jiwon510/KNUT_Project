@@ -104,13 +104,16 @@
 
 	</div>
 
-	<c:if test="${authority eq '2'}">
-      <div>
-         <button class="btn btn-danger btn-lg btn-block" style="float:right;" type="submit">삭제</button>
-         <button class="btn btn-success btn-lg btn-block" onclick="location.href='/VIEW/noticeWrite/noticeWrite.jsp'" style="float:right;" type="submit">글쓰기</button>
-      </div>
-   </c:if>
-   </form>
+		<c:if test="${authority eq '2'}">
+			<div>
+				<button class="btn btn-danger btn-lg btn-block" style="float: right;" type="submit">삭제</button>
+			</div>
+				</form>
+			<div>
+				<button class="btn btn-success btn-lg btn-block" onclick="location.href='/VIEW/noticeWrite/noticeWrite.jsp'" style="float: right;" type="submit">글쓰기</button>
+			</div>
+		</c:if>
+
    
 </body>
 </html>

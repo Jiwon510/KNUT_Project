@@ -104,11 +104,14 @@
 	</div>
 
 	
-      <div>
-         <button class="btn btn-danger btn-lg btn-block" style="float:right;" type="submit">삭제</button>
-         <button class="btn btn-success btn-lg btn-block" onclick="location.href='/VIEW/boardWrite/boardWrite.jsp'" style="float:right;" type="submit">글쓰기</button>
-      </div>
-      </form>
+	<div>
+		<button class="btn btn-danger btn-lg btn-block" style="float: right;" type="submit">삭제</button>
+	</div>
+		</form>
+	<div>
+		<button class="btn btn-success btn-lg btn-block" onclick="location.href='/VIEW/boardWrite/boardWrite.jsp'" style="float:right;" type="submit">글쓰기</button>
+	</div>
+  
 
    
 </body>
