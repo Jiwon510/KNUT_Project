@@ -47,7 +47,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="text" id="pswd1" class="int" maxlength="20">
+                        <input type="password" id="pswd1" class="int" maxlength="20">
                         <span id="alertTxt">사용불가</span>
                         <img src="unlock2.jpg" id="pswd1_img1" class="pswdImg">
                     </span>
@@ -58,7 +58,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="box int_pass_check">
-                        <input type="text" id="pswd2" class="int" maxlength="20">
+                        <input type="password" id="pswd2" class="int" maxlength="20">
                         <img src="unlock2.jpg" id="pswd2_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
@@ -131,43 +131,34 @@
                 </div>
 
                 <!-- EMAIL -->
-                <div class="email-wrap">
-                    <div id="email-box">
-                      <h3 class="join_title"><label for="email">이메일<span class="optional"></span></label></h3>
-                      <span class="box int_email">
-                          <input type="text" id="email" class="int" maxlength="100" >
-                      </span>
-                    </div>
-                    <p>@</p>
-                    <div id="email-box">
-                      <span class="box int_email">
-                        <select id="domain">
-                          <option value="">선택</option>
-                          <option value="1">직접입력</option>
-                          <option value="naver">naver.com</option>
-                          <option value="knut">a.ut.ac.kr</option>
-                          <option value="google">gmail.com</option>
-                          <option value="daum">daum.net</option>
-                        </select>
-
-                        <script>
-                          $(function() {
-                              $('#domain').change(function() {
-                                  if ($('#domain').val() == '1') {
-                                      $('#domainName').attr("disabled", false);
-                                      $('#domainName').val("");
-                                      $('#domainName').focus();
-                                  } else {
-                                      $('#domainName').val($('#select').val());
-                                  }
-                              })
-                          });
-                        </script>
-                       
-                      </span>
-                    </div>
-                    <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>    
-                </div>
+                <div>
+	                <div class="email-wrap">
+	                	<h3 class="join_title"><label for="email">이메일<span class="optional"></span></label></h3>
+	                    <div id="email_front">
+	                    	<span class="box email1">
+	                    		<input type="text" id= "front" class="string" maxlength="100" placeholder="이메일">
+	                    	</span>
+	                    </div>
+	                    <span class="gol">@</span>
+	                    <div id="domain">
+	                    	<span class="box email_2">
+			                    <input type="text" name="email2" id="email2" onfocus="inInput(this)" onblur="outInput(this)"/>
+							</span>
+							
+						</div>
+						<select id="selbox" onfocus="inInput(this)" onblur="outInput(this)" onChange="selEmail(this.value)">
+								<option onselect="focus">직접입력</option>
+								<option value="naver.com">naver.com</option>
+								<option value="google.com">google.com</option>
+								<option value="daum.net">daum.net</option>
+								<option value="yahoo.co.jp">yahoo.co.jp</option>
+								<option value="a.ut.ac.kr">a.ut.ac.kr</option>
+								<option value="gmail.com">gmail.com</option>
+						</select>
+	                    
+	                    <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>    
+	                </div>
+	             </div>   
 
                 <!-- MOBILE -->
                 <div>

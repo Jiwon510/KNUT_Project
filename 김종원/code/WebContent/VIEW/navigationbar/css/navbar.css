@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li, ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+*{
+	text-align:center;
+}
+
+/* 부메뉴가 있는 네비게이션바
+2depth 네비게이션바 */
+.navbar{
+	width: 100%;
+	
+	
+}
+#navi img{
+  height: 57px;
+  width: 200px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 10px;
+	
+	}
+#navi>ul{
+	display:flex;
+	
+	}
+#navi>ul:after{
+}
+#navi>ul>li{
+	width:20%;
+	/* 말줄임표 공식 */
+	white-space:nowrap;	/* 줄안바꾸기 */
+	text-overflow:ellipsis; /* 생략기호 */
+	padding:15px;
+	background:rgb(109, 13, 13);
+	color:white;
+	border-left:1px solid white;
+	position:relative;
+}
+#navi>ul>li>ul{
+	height:0;
+	transition:0.5s;
+	overflow:hidden;
+	background:rgb(109, 13, 13);
+	width:100%;
+	position:absolute;
+	left:-2px;
+	top:54px;
+	
+}
+#navi>ul>li:hover>ul{
+	height:100px;
+	left:-2px;
+	top:54px;
+	
+}
+#navi>ul>li>ul>li{
+	padding:10px;
+	visibility:hidden;
+	opacity:0;
+	transition:0.3s;
+	
+}
+#navi>ul>li:hover>ul li{
+	visibility:visible;
+	opacity:1;
+	left: 30px;
+}
+#navi>ul>li:hover{
+	background:rgb(173, 20, 20);
+	color:white;
+	border:3px solid rgb(109, 13, 13);
+}
+#navi ul>li{
+		border:3px solid transparent;
+}
+#navi>ul>li>ul>li:hover{
+	background:rgb(173, 20, 20);
+	color:white;
+	right: 3px;
+}
+
+#show img{
+	width: 30px;
+	height: 30px;
+	
+}
+
+#sidemenu {
+	width: 20%;
+	padding-left: 20px;
+	
+	
+}
+#sidemenu ul li{
+	list-style: none;
+}
+#sidemenu li{
+	float: left;
+	
+	
+	
+}
+
+#login{
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 18px;
+	color: rgb(173, 20, 20);;
+	
+}
+
+#login a{
+	padding-top: 30px;
+}
+
+#sidemenu img{
+	padding: 0;
+	width: 100px;
+	height: 50px;
+	padding-top: 10px;
+}
+
+
+
+.input{
+	outline: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 4px;
+	padding: 5px;
+	
+	font-size: 14px;
+	text-align: center;
+	color: black;
+	padding-top: 25px;
+	
+}
+
+#searchbtn{
+	background-color: rgb(109, 13, 13);
+	color: white;
+	border-radius: 3px;
+	padding: 3px;
+	font-weight: bold;
+}
+
+#searchbtn:hover{
+	background-color: rgb(173, 20, 20);
+	color: white;
+}

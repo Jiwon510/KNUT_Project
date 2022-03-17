@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>navigationbar</title>
+  <link href="navbar.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+ 
+        function searchbox(){
+            if($('#searchbox').css('display') == 'none'){
+            $('#searchbox').show();
+        }else{
+            $('#searchbox').hide();
+        }
+        }
+            
+    
+        
+    </script>
+
+</head>
+
+<body>
+  <div id='navi'>
+    <ul class="navbar">
+      <a href="#"><img src="logo3.jpg"></a>
+      <li class="active"><a href="#">공지사항</a>
+        
+      </li>
+      <li><a href="#">자유게시판</a>
+        
+      </li>
+      <li><a href="#">가입</a>
+        <ul>
+          <li><a href="#">캠퍼스 선택</a>
+          </li>
+          <li><a href="#">가입방법</a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">소개</a>
+        <ul>
+          <li><a href="#">동아리란?</a>
+          </li>
+          <li><a href="#">동아리 페어</a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">행사</a>
+        <ul> 
+          <li><a href="#">동아리 행사</a>
+          </li>
+          <li><a href="#">동아리 페어</a>
+          </li>
+        </ul>
+
+      </li>
+
+      <ul id="sidemenu">
+        <li>
+          <div id="searchbox">  
+            <input type="text" class="input" placeholder="검색어를 입력하세요">
+            <button id="searchbtn" onclick="location.href='#'">검색</button>
+          </div> 
+        </li>
+
+        <li><img  src="search.png" onclick="searchbox()"></li>
+        
+        <li id="login"><a href="#">Login</a> 
+      </ul>
+
+      
+
+
+    </ul>
+  </div>
+
+</body>

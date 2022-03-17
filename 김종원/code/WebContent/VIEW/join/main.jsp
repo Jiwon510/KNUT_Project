@@ -1,3 +1,4 @@
+<script>
 /*변수 선언*/
 var id = document.querySelector('#id');
 
@@ -263,3 +264,18 @@ mobile.onkeyup = function(){
   console.log(this.value);
   this.value = autoHypenPhone( this.value ) ;  
 }
+
+function selEmail(email){
+	if(email != "직접입력"){
+		document.getElementById("email2").value = email;
+		document.getElementById("email2").readOnly = true;
+		document.getElementById("email2").focus = true;
+	}else{
+		document.getElementById("email2").readOnly = false;
+		document.getElementById("email2").value = "";
+	}
+}
+</script>
+
+
+
