@@ -18,7 +18,6 @@ public class IndexController extends HttpServlet{
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String studentID = (String)session.getAttribute("studentID");
-//		System.out.println(studentID);
 		
 		MemberService service = new MemberService();
 		String name = service.getMemberName(studentID);

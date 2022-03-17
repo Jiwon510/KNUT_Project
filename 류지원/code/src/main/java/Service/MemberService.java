@@ -17,7 +17,7 @@ public class MemberService {
 			
 			List<User> list= new ArrayList<>();
 			
-			String sql = "SELECT num, name, studentID, department FROM USER WHERE authority = 1"
+			String sql = "SELECT num, name, studentID, department FROM userTBL WHERE authority = 1"
 					+ " AND " +field+ " LIKE ? ";
 					
 		    Connection conn = null;
@@ -75,7 +75,7 @@ public class MemberService {
 		
 		List<User> list= new ArrayList<>();
 		
-		String sql = "SELECT num, name, studentID, department FROM USER WHERE authority = 0"
+		String sql = "SELECT num, name, studentID, department FROM userTBL WHERE authority = 0"
 				+ " AND " +field+ " LIKE ? ";
 				
 	    Connection conn = null;
@@ -132,7 +132,7 @@ public class MemberService {
 	public int getMemberCount(String field, String query) {
 		int count = 0;
 
-		String sql = "SELECT COUNT(num) as count FROM USER where authority = 1"; 
+		String sql = "SELECT COUNT(num) as count FROM userTBL where authority = 1"; 
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -173,7 +173,7 @@ public class MemberService {
 	public int getNonMemberCount(String field, String query) {
 		int count = 0;
 
-		String sql = "SELECT COUNT(num) as count FROM USER where authority = 0"; 
+		String sql = "SELECT COUNT(num) as count FROM userTBL where authority = 0"; 
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -214,7 +214,7 @@ public class MemberService {
 	public String getMemberName(String studentID) {
 		String name = null;
 		
-		String sql = "SELECT name FROM USER where studentID = ?"; 
+		String sql = "SELECT name FROM userTBL where studentID = ?"; 
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -265,7 +265,7 @@ public class MemberService {
 				params += ",";
 		}
 		
-		String sql = "DELETE FROM USER WHERE num IN ("+params+")"; 
+		String sql = "DELETE FROM userTBL WHERE num IN ("+params+")"; 
 
 		Connection conn = null;
 		Statement st = null;

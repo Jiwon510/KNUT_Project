@@ -6,8 +6,13 @@ public class Write {
 	private String content;
 	private int like_count;
 	
+	public Write(String title, String writer, String content) {
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+	}
+	
 	public Write(String title, String writer, String content, int like_count) {
-		super();
 		this.title = title;
 		this.writer = writer;
 		this.content = content;

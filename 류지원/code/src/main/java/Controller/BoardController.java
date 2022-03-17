@@ -33,7 +33,7 @@ public class BoardController extends HttpServlet{
 		
 		int result = service.delBoardAll(ids);
 		
-		response.sendRedirect("/VIEW/notice/notice");	
+		response.sendRedirect("/VIEW/board/board");	
 	}
 	
 	@Override

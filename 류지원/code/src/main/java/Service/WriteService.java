@@ -13,7 +13,7 @@ public class WriteService {
 		
 		List<Write> list= new ArrayList<>();
 		
-		String sql = "INSERT INTO NOTICE(title, writer, content, like_count) VALUES (?, ?, ?, 0)";
+		String sql = "INSERT INTO NOTICE(title, writer, content) VALUES (?, ?, ?)";
 
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -37,7 +37,6 @@ public class WriteService {
 					title
 					,writer
 					,content
-					,like_count
 					);
 			list.add(write);
 			

@@ -31,7 +31,6 @@ public class BoardDetailController extends HttpServlet {
 		CommentService C_service = new CommentService();
 		
 		Board board = B_service.getBoard(num);
-		System.out.println(board);
 //		List<Comment> list = C_service.getCommentList(num);
 		
 //		request.setAttribute("list", list);

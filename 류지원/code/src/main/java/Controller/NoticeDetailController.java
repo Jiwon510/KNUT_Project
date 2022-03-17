@@ -25,18 +25,11 @@ public class NoticeDetailController extends HttpServlet {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
 		
-		
-
 		NoticeService N_service = new NoticeService(); 
-		CommentService C_service = new CommentService();
 		
 		Notice notice = N_service.getNotice(num);
-		System.out.println(notice);
-//		List<Comment> list = C_service.getCommentList(num);
-		
-//		request.setAttribute("list", list);
-		request.setAttribute("notice", notice);
-		
+
+		request.setAttribute("notice", notice);		
 		request.getRequestDispatcher("/VIEW/noticeDetail/noticeDetail.jsp").forward(request, response);
 	}
 }

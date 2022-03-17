@@ -22,7 +22,8 @@ public class NoticeService {
 
 		return getNoticeList("title", "", page);
 	}
-
+	
+	/* notice */
 	public List<Notice> getNoticeList(String field, String query, int page) {
 
 		List<Notice> list = new ArrayList<>();
@@ -89,6 +90,7 @@ public class NoticeService {
 		return getNoticeCount("title", "");
 	}
 
+	/* paging */
 	public int getNoticeCount(String field, String query) {
 		int count = 0;
 
@@ -130,6 +132,7 @@ public class NoticeService {
 		return count;
 	}
 
+	/* notice_detail */
 	public Notice getNotice(int num) {
 		Notice notice = null;
 		
@@ -157,7 +160,6 @@ public class NoticeService {
 				String writer = rs.getString("writer");
 				Date date = rs.getDate("date");
 				String content = rs.getString("content");
-				int like_count = rs.getInt("like_count");
 				String file = rs.getString("file");
 				
 				notice = new Notice(
@@ -165,7 +167,6 @@ public class NoticeService {
 						, writer
 						, date
 						, content
-						, like_count
 						, file
 						);
 			}

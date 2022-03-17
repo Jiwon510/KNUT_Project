@@ -213,7 +213,7 @@ public class BoardService {
 				params += ",";
 		}
 		
-		String sql = "DELETE FROM NOTICE WHERE NUM IN ("+params+")"; 
+		String sql = "DELETE FROM BOARD WHERE NUM IN ("+params+")"; 
 
 		Connection conn = null;
 		Statement st = null;

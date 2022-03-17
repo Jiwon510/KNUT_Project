@@ -7,19 +7,19 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>약관동의</title>
-    <link rel="stylesheet" href="agreement.css">
-    <script src="./agreement.jsp"></script>
+    <link rel="stylesheet" href="/VIEW/agreement/css/agreement.css">
+    <script src="/VIEW/agreement/agreement.js"></script>
   </head>
 
   <body>
 
     <header>
-      <a href="main.jsp"><img id="logo" src="header-logo2.jpg"></a>
+      <a href="main.jsp"><img id="logo" src="/VIEW/agreement/images/header-logo2.jpg"></a>
       <h1>KNUT-CLUB</h1>
     </header>
 
     <section>
-      <form action="" id="agreementform">
+      <form action="/VIEW/agreement/agreement" id="agreementform" method="get">
         <ul class="agreement_box">
           <li class="checkBox check1">
             <ul class="clearfix">
@@ -33,7 +33,8 @@
             <ul class="clearfix">
               <li>이용약관 동의(필수)</li>
               <li class="checkBtn">
-                <input type="checkbox" name="chk" class="chk">
+                <input type="checkbox" name="chk_1" value='1'class="chk">
+                <input type="hidden" name="chk_1" value='0'/>
               </li>
             </ul>
             <textarea name="" id="">한국교통대학교 학생 여러분을 환영합니다.
@@ -111,14 +112,15 @@
             <ul class="clearfix">
               <span class="exception"><li>개인정보 수집 및 이용 동의(필수)</li></span>
               <span class="checkBtnlast"><span class="checkBtn"></span>
-                <input type="checkbox" name="chk" class="chk">
+                <input type="checkbox" name="chk_2" value='1' class="chk">
+                <input type="hidden" name="chk_2" value='0'/>
               </li>
             </ul>
           </li>
         </ul>
         <ul class="footer clearfix">
           <li><button class="fcBtn1" type="button" onclick="location.href='/VIEW/index/index.jsp'">비동의</button></li>
-          <li><button class="fcBtn2" type="button" onclick="location.href='/VIEW/join/join.jsp'">동의</button></li>
+          <li><button class="fcBtn2" type="submit" onclick="location.href='/VIEW/agreement/agreement'">동의</button></li>
         </ul>
         
       </form>
@@ -133,7 +135,7 @@
 
 </html>
 
-<script>
+<!-- <script>
 window.onload = function () {
   const checkAll = document.getElementById('chkAll');
   const chks = document.querySelectorAll('.chk');  
@@ -166,5 +168,5 @@ window.onload = function () {
         })
   }
    }
-</script>
+</script> -->
   

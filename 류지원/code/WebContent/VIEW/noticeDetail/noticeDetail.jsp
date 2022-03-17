@@ -34,10 +34,6 @@
 								</tr>
 								<!-- 수정필요 -->
 								<tr>
-									<th>좋아요</th>
-									<td>${notice.like_count }</td>
-								</tr>
-								<tr>
 									<th>첨부파일</th>
 									<td>
 										<c:forTokens var="filename" items="${notice.file }" delims="," varStatus="st">
