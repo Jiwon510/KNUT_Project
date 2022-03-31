@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>자유게시판</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/boardstyle.css">
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="#">Login</a>
+      <a href="index.html">Home</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><img id="searchicon" src="searchicon.PNG" alt=""><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      
+      
+    </div>
+  
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="logoimg.jpg"></a>
+      </div>
+
+      <div id="menu">
+        <ul>
+          <li><a href="notice.html">공지사항</a>
+          </li>
+          <li><a href="board.html">자유게시판</a>
+            
+          </li>
+          <li><a href="#">가입</a>
+            <ul>
+              <li><a href="#">충주캠퍼스</a></li>
+              <li><a href="#">의왕캠퍼스</a></li>
+              <li><a href="#">증평캠퍼스</a></li>
+            </ul>
+          </li>
+          <li><a href="#">소개</a>
+            <ul>
+              <li><a href="#">동아리란?</a></li>
+              <li><a href="#">가입 방법</a></li>
+            </ul>
+          </li>
+          <li><a href="#">행사</a>
+            <ul>
+              <li><a href="#">동아리 행사</a></li>
+              <li><a href="#">동아리 페어</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pathbox">
+      <h2>Pathbox</h2>
+    </div>
+     
+    <div class="row">
+      <div class="column side">
+        
+        <ul class="sidemenu">
+          <h2>Menu</h2>
+          <li><a href="notice.html">공지사항</li>
+          <li id="now"><a href="board.html">자유게시판</a></li>
+          <li><a href="#">가입</a></li>
+          <li><a href="#">소개</a></li>
+          <li><a href="#">행사</a></li>
+        </ul>
+      </div>
+      <div class="column middle">
+        <h1>자유게시판</h1>
+        <table>
+          <tr id="tableheader">
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회</th>
+            <th>파일</th>
+          </tr>
+          <tr onclick="location.href='www.naver.com'">
+            <td>1</td>
+            <td>KNUT-LUB</td>
+            <td>김종원</td>
+            <td>2022-03-30</td>
+            <td>1</td>
+            <td>O</td>
+          </tr>
+          
+        </table>
+        
+      </div>
+      
+    </div>
+     
+    <div class="footer">
+      <p>Footer</p>
+    </div>
+  </body>
+</html>
