@@ -4,63 +4,130 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
-<html>
-<head>
-   <link rel="stylesheet" type="text/css" href="/VIEW/notice/css/notice.css">
-   <meta charset="UTF-8">
-<title>동아리 관리 프로그램</title>
-</head>
-<body>
-   <!-- ---------------------------------header---------------------------------------- -->
-   <div class="header">
-      <jsp:include page="/VIEW/notice/noticeHeader.jsp"></jsp:include>
-   </div>
-   <!-- ---------------------------------main------------------------------------------ -->
-   <form action="/VIEW/notice/notice" method="get" >
-	   <div class="row">
-	      <div class="col-md-8 mb-3">
-	      <select class="custom-select d-block w-100" name="search">  
-	         <option ${(param.search == "title")?"selected":""} value="title">제목</option>
-	         <option ${(param.search == "writer")?"selected":""} value="writer">작성자</option>
-	      </select>
-	      <input type="text" class="form-control" name="word" placeholder="" value="${param.word}" required>
-	      <input type="submit" value="검색">
-	      </div>
-	   </div>
-   </form>
-   
-   <form action="/VIEW/notice/notice" method="post">
-   <table class="type08">
-      <thead>
-         <tr>
-            <th scope="cols">No.</th>
-            <th scope="cols">제목</th>
-            <th scope="cols">작성자</th>
-            <th scope="cols">작성일자</th>
+<html lang="ko">
+  <head>
+    <title>공지사항</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/VIEW/notice/css/notice.css">
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="/VIEW/login/login.jsp">Login</a>
+      <a href="/VIEW/index/index.jsp">Home</a>
+      <div class="search-container">
+        <form action="#">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><img id="searchicon" src="/VIEW/notice/images/search.png" alt=""><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      
+      
+    </div>
+  
+    <div class="navbar">
+      <div class="logo">
+        <a href="/VIEW/index/index.jsp"><img src="/VIEW/notice/images/logo.jpg"></a>
+      </div>
+
+      <div id="menu">
+        <ul>
+          <li><a href="/VIEW/notice/notice">공지사항</a>
+          </li>
+          <li><a href="/VIEW/board/board">자유게시판</a>
+            
+          </li>
+          <li><a href="#">가입</a>
+            <ul>
+              <li><a href="#">충주캠퍼스</a></li>
+              <li><a href="#">의왕캠퍼스</a></li>
+              <li><a href="#">증평캠퍼스</a></li>
+            </ul>
+          </li>
+          <li><a href="#">소개</a>
+            <ul>
+              <li><a href="#">동아리란?</a></li>
+              <li><a href="#">가입 방법</a></li>
+            </ul>
+          </li>
+          <li><a href="#">행사</a>
+            <ul>
+              <li><a href="#">동아리 행사</a></li>
+              <li><a href="#">동아리 페어</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pathbox">
+      <h2>Pathbox</h2>
+    </div>
+     
+    <div class="row">
+      <div class="column side">
+        
+        <ul class="sidemenu">
+          <h2>Menu</h2>
+          <li id="now"><a href="/VIEW/notice/notice">공지사항</li>
+          <li><a href="/VIEW/board/board">자유게시판</a></li>
+          <li><a href="#">가입</a></li>
+          <li><a href="#">소개</a></li>
+          <li><a href="#">행사</a></li>
+        </ul>
+      </div>
+      <div class="column middle">
+        <h1><a href="/VIEW/notice/notice">공지사항</h1>
+
+		<form action="/VIEW/notice/notice" method="get">
+			<div class="row">
+				<div class="col-md-8 mb-3">
+					<select class="custom-select d-block w-100" name="search">
+						<option ${(param.search == "title")?"selected":""} value="title">제목</option>
+						<option ${(param.search == "writer")?"selected":""}
+							value="writer">작성자</option>
+					</select> <input type="text" class="form-control" name="word"
+						placeholder="" value="${param.word}" required> <input
+						type="submit" value="검색">
+				</div>
+			</div>
+		</form>
+
+		<form action="/VIEW/notice/notice" method="post">
+        <table>
+          <tr id="tableheader">
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회</th>
+            <th>파일</th>
             <th scope="cols">선택</th>
-            
-         </tr>
-      </thead>
-      <tbody>
-         <c:forEach var="n" items="${list}">
-         <input type="hidden" name="n" value=${n.num } >
-         <tr>
-            <td>${n.n}</td>
-            <td><a href="/VIEW/noticeDetail/noticeDetail?num=${n.num}">${n.title }</a></td>
-            <td>${n.writer }</td>
-            <td>${n.date }</td>
-            <td><input type="checkbox" name= "del_id" value="${n.num}"></td>
-            
-         </tr>
-         </c:forEach>
-      </tbody>
-   </table>
+          </tr>
 
-	<c:set var="page" value="${(param.p == null)?1:param.p}" />
+		<tbody>
+			<c:forEach var="n" items="${list}">
+				<input type="hidden" name="n" value=${n.num }>
+				<tr>
+					<td>${n.n}</td>
+					<td><a href="/VIEW/noticeDetail/noticeDetail?num=${n.num}">${n.title }</a></td>
+					<td>${n.writer }</td>
+					<td>${n.date }</td>
+					<%-- <td>${n.hit }</td> --%>
+					<td>0</td>
+					<td>${n.file }</td>
+					<td><input type="checkbox" name="del_id" value="${n.num}"></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+		</table>
+      </div>   
+    </div>
+    
+    <c:set var="page" value="${(param.p == null)?1:param.p}" />
 	<c:set var="startNum" value="${page-(page-1)%5}" />
-	<c:set var="lastNum"
-		value="${fn:substringBefore(Math.ceil(count/10), '.')}" />
-
+	<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10), '.')}" />
+	
 	<div class="indexer margin-top align-right">
 		<h3 class="hidden">현재 페이지</h3>
 		<div>
@@ -68,12 +135,12 @@
 		</div>
 	</div>
 
-	<div class="margin-top align-center pager">
+    <div class="margin-top align-center pager">
 
 
-		<%-- <c:set var="page" value="${(param.p == null)?1:param.p}"/>
+		<c:set var="page" value="${(param.p == null)?1:param.p}"/>
 		<c:set var="startNum" value="${page-(page-1)%5}"/>
-		<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10), '.')}"/> --%>
+		<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10), '.')}"/>
 		
 		<div>
 		<c:if test="${startNum>1}">
@@ -101,9 +168,7 @@
 				<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
 			</c:if>
 		</div>
-
-	</div>
-
+		
 		<c:if test="${authority eq '2'}">
 			<div>
 				<button class="btn btn-danger btn-lg btn-block" style="float: right;" type="submit">삭제</button>
@@ -112,8 +177,12 @@
 			<div>
 				<button class="btn btn-success btn-lg btn-block" onclick="location.href='/VIEW/noticeWrite/noticeWrite.jsp'" style="float: right;" type="submit">글쓰기</button>
 			</div>
-		</c:if>
+		</c:if>	
 
-   
-</body>
+	</div>
+     
+    <div class="footer">
+      <p>Footer</p>
+    </div>
+  </body>
 </html>

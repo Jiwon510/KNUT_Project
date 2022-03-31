@@ -12,6 +12,7 @@
 		<main>
 				<h2 class="main title">자유게시판</h2>
 				
+				<form method="post" action="/VIEW/boardDetail/boardDetail" enctype="multipart/form-data"></form>
 				<div class="margin-top first">
 						<h3 class="hidden">자유게시판 내용</h3>
 						<table class="table">

@@ -1,42 +1,106 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<title>동아리 관리 프로그램</title>
-
-<link rel="stylesheet" type="text/css" href="VIEW/index/css/index.css">
+	<title>KNUT_LUB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/VIEW/index/css/index.css?after">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/VIEW/index/index.js"></script>
 </head>
+
 <body>
-	<!-- ---------------------------------header---------------------------------------- -->
-	<div class="header">
-		<jsp:include page="/VIEW/index/indexHeader.jsp"></jsp:include>
-		<span>${name }</span>
-		<a href="/VIEW/login/login.jsp">로그아웃</a></li>
+	<div class="topnav">
+		<a href="/VIEW/login/login.jsp">Login</a> 
+		<a href="/VIEW/index/index.jsp">Home</a>
+		<div class="search-container">
+			<form action="/action_page.php">
+				<input type="text" placeholder="Search.." name="search">
+				<button type="submit">
+					<img id="searchicon" src="/VIEW/index/images/search.png" alt=""><i
+						class="fa fa-search"></i>
+				</button>
+			</form>
+		</div>
 	</div>
-	<!-- ---------------------------------main------------------------------------------ -->
-	<br >
-	<div class="tab">
-    <ul class="tabnav">
-      <li><a href="/VIEW/notice/notice">공지사항</a></li>
-      <li><a href="/VIEW/comment/comment.jsp">동아리소개</a></li>
-      <li><a href="/VIEW/video/video.jsp">대회영상</a></li>
-      <li><a href="/VIEW/board/board">자유게시판</a></li>
-      <c:if test="${authority eq '2'}">
-      	<li><a href="/VIEW/memberlist/memberlist">회원목록</a></li>
-      	<li><a href="/VIEW/permission/permission">승인목록</a></li>
-      </c:if>
-    </ul>
-    <div class="tabcontent">
-      <div id="tab01">이미지 삽입	 </div>
-      <div id="tab02">글 삽입</div>
-    </div>
-  </div>
-	<%-- <!-- ---------------------------------footer---------------------------------------- -->
+
+	<div class="navbar">
+		<div class="logo">
+			<a href="/VIEW/index/index.jsp"><img src="/VIEW/index/images/logo.jpg"></a>
+		</div>
+
+		<div id="menu">
+			<ul>
+				<li><a href="/VIEW/notice/notice">공지사항</a></li>
+				<li><a href="/VIEW/board/board">자유게시판</a></li>
+				<li><a href="#">가입</a>
+					<ul>
+						<li><a href="#">충주캠퍼스</a></li>
+						<li><a href="#">의왕캠퍼스</a></li>
+						<li><a href="#">증평캠퍼스</a></li>
+					</ul></li>
+				<li><a href="#">소개</a>
+					<ul>
+						<li><a href="#">동아리란?</a></li>
+						<li><a href="#">가입 방법</a></li>
+					</ul></li>
+				<li><a href="#">행사</a>
+					<ul>
+						<li><a href="#">동아리 행사</a></li>
+						<li><a href="#">동아리 페어</a></li>
+					</ul></li>
+				<c:if test="${authority eq '2'}">
+					<li><a href="#">회원관리</a>
+						<ul>
+							<li><a href="/VIEW/memberlist/memberlist">회원목록</a></li>
+							<li><a href="/VIEW/permission/permission">승인목록</a></li>
+						</ul></li>
+				</c:if>
+			</ul>
+		</div>
+	</div>
+
+	<div class="picture">
+		<img src="/VIEW/index/images/mainpicture.jpg">
+	</div>
+
+	<div class="row">
+
+		<div class="column middle">
+			<h2>Main Content</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque
+				ultricies, eget elementum magna tristique. Quisque vehicula, risus
+				eget aliquam placerat, purus leo tincidunt eros, eget luctus quam
+				orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque
+				ultricies, eget elementum magna tristique. Quisque vehicula, risus
+				eget aliquam placerat, purus leo tincidunt eros, eget luctus quam
+				orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+		</div>
+		<div class="column middle">
+			<h2>Main Content</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque
+				ultricies, eget elementum magna tristique. Quisque vehicula, risus
+				eget aliquam placerat, purus leo tincidunt eros, eget luctus quam
+				orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque
+				ultricies, eget elementum magna tristique. Quisque vehicula, risus
+				eget aliquam placerat, purus leo tincidunt eros, eget luctus quam
+				orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+		</div>
+
+
+
+	</div>
+
 	<div class="footer">
-		<jsp:include page="/view/sub/footer.jsp"></jsp:include>
-	</div> --%>
+		<p>Footer</p>
+	</div>
 </body>
-</html>
